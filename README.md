@@ -1,11 +1,11 @@
 # Hello, I'm Dave Espinoza
 
-I just recently graduated from the University of Nevada, Reno with a Master's degree in Cybersecurity and a bachelor's degree in Information Technology as well. I am currently an IT Processing Technician at Executive Personal Computers. So far, I'm still learning and keep on doing some research on the current trends to be updated.
+I just recently graduated from the University of Nevada, Reno with a Master's degree in Cybersecurity and a Bachelor's degree in Information Technology as well. I am currently an IT Processing Technician at Executive Personal Computers. So far, I'm still learning and keep on playing with some tools that can be used in the cybersecurity space and do some research on the current trends to be updated.
 
 
 ## Objective
 
-My adventure in the technology world has led me to develop a passion for cybersecurity, and I am now eager to enter cyberspace, specifically aiming to be a cybersecurity expert. I am looking for an opportunity that will help my growth as a cybersecurity professional, enhance my technical skills, and learn more.
+My adventure in the technology world has led me to develop a passion for cybersecurity, and I am now eager to enter cyberspace, specifically aiming to be a cybersecurity expert. I am looking for an opportunity that will help my growth as a cybersecurity professional, enhance my technical skills, and learn more. 
 
 ## Skills
 [Provide skills and associated project. Make sure to hyperlink the project - Remove this afterwards]]
