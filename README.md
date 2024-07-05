@@ -1,5 +1,4 @@
-# Hello, I'm CHANGEME
-<a href="www.linkedin.com/in/dave-espinoza-542504169"><img src="https://img.shields.io/badge/-LinkedIn-0072b1?&style=for-the-badge&logo=linkedin&logoColor=white" /></a>
+# Hello, I'm Dave Espinoza, and welcome to my project!
 
 [Brief Introduction - Remove this afterwards]
 
