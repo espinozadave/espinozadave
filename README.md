@@ -13,10 +13,6 @@ My adventure in the technology world has led me to develop a passion for cyberse
 |-----------------------------------------------|----------------------------|
 | Encryption/Decryption of AES, RSA using Python  | <a href="https://github.com/espinozadave/Home-Lab.git">Home Lab</a>|
 | Network Traffic Monitoring and Attack Detection | <a href="https://github.com/espinozadave/Home-Lab.git">Detection Lab</a>|
-| Security Automation with Shuffle SOAR         | SOC Automation Lab|
-| Incident Response Planning and Execution      | SOC Automation Lab|
-| Case Management with TheHive                  | SOC Automation Lab|
-| Scripting and Automation for Threat Mitigation | SOC Automation Lab|
 
 ## Tools
 [Provide tools and break them down into categories. Use ChatGPT to help create the link - Remove this afterwards]]
