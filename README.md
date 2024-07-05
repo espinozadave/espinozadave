@@ -11,7 +11,8 @@ My adventure in the technology world has led me to develop a passion for cyberse
 
 | Skill                                         | Associated Project         |
 |-----------------------------------------------|----------------------------|
-| Python                              | <a href="https://github.com/espinozadave/Home-Lab.git">Home Lab</a>|
+| Python        
+Scripting    | <a href="https://github.com/espinozadave/Home-Lab.git">Home Lab</a>|
 | Network Traffic Monitoring and Attack Detection | <a href="https://github.com/espinozadave/Home-Lab.git">Detection Lab</a>|
 | Security Automation with Shuffle SOAR         | SOC Automation Lab|
 | Incident Response Planning and Execution      | SOC Automation Lab|
