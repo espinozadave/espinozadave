@@ -11,7 +11,7 @@ My adventure in the technology world has led me to develop a passion for cyberse
 
 | Skill                                         | Associated Project         |
 |-----------------------------------------------|----------------------------|
-| Encryption/Decryption of AES, RSA, and other modes using Python  | <a href="https://github.com/espinozadave/Home-Lab.git">Encryption Project</a>|
+| Encryption/Decryption of AES, and other modes, and RSA using Python  | <a href="https://github.com/espinozadave/Home-Lab.git">Encryption Project</a>|
 | Network Traffic Monitoring and Attack Detection | <a href="https://github.com/espinozadave/Home-Lab.git">Detection Lab</a>|
 
 ## Tools
