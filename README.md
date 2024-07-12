@@ -5,7 +5,7 @@ I just recently graduated from the University of Nevada, Reno with a Master's de
 
 ## Objective
 
-My adventure in the technology world has led me to develop a passion for cybersecurity, and I am now eager to enter cyberspace, specifically aiming to be a cybersecurity expert. I am looking for an opportunity that will help my growth as a cybersecurity professional, enhance my technical skills, and learn more. 
+My adventure in the technology world has led me to develop a passion for cybersecurity, and I am now eager to enter cyberspace, specifically aiming to be a cybersecurity expert any many aspects. I am looking for an opportunity that will help my growth as a cybersecurity professional, enhance my technical skills, and learn more. 
 
 ## Skills
 
