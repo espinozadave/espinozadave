@@ -9,9 +9,9 @@ My adventure in the technology world has led me to develop a passion for cyberse
 
 ## Skills
 
-| Skill Learned                                        | Associated Project         |
-|-----------------------------------------------|----------------------------|
-| Vulnerability Scanning | <a href="https://github.com/espinozadave/Vulnerability-Project">Vulnerability Scanning</a>|
+| Skills Learned                                        | Associated Project         |
+|-------------------------------------------------------|----------------------------|
+| Vulnerability Scanning <br> Network Scanning <br> Penetration Testing <br> Vulnerability Assessment Report <br> Linux OS | <a href="https://github.com/espinozadave/Vulnerability-Project">Vulnerability Scanning</a>|
 | Encryption/Decryption of AES, and other modes, and RSA using Python  | <a href="https://github.com/espinozadave/Home-Lab.git">Encryption/Decryption</a>|
 | Network Traffic Monitoring and Attack Detection | <a href="">On-going</a>|
 
