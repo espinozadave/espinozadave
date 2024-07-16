@@ -16,7 +16,7 @@ My adventure in the technology world has led me to develop a passion for cyberse
 | Network Traffic Monitoring and Attack Detection | <a href="">On-going</a>|
 
 ## Tools
-- Nessus                - Wireshark
+- Nessus            |    - Wireshark
 - Nmap
 - Kali Linux
 - VirtualBox
@@ -29,8 +29,6 @@ My adventure in the technology world has led me to develop a passion for cyberse
     <img src="https://img.shields.io/badge/-Zeek-777BB4?&style=for-the-badge&logo=Zeek&logoColor=white" />
 </div>
 
-Velociraptor&logoColor=white" />
-</div>
 
 ### SIEM
 <div>
