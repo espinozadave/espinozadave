@@ -22,6 +22,7 @@ My adventure in the technology world has led me to develop a passion for cyberse
 - VirtualBox
 - Msf Console
 - Wireshark
+- Netstat
 
 ### Network
 <div>
