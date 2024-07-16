@@ -16,11 +16,12 @@ My adventure in the technology world has led me to develop a passion for cyberse
 | Network Traffic Monitoring and Attack Detection | <a href="">On-going</a>|
 
 ## Tools
-- Nessus            |    - Wireshark
+- Nessus
 - Nmap
 - Kali Linux
 - VirtualBox
 - Msf Console
+- Wireshark
 
 ### Network
 <div>
