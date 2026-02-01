@@ -1,6 +1,6 @@
 # Hello, I'm Dave Espinoza
 
-I just recently graduated from the University of Nevada, Reno with a Master's degree in Cybersecurity and a Bachelor's degree in Information Technology as well. I am currently an IT Processing Technician at Executive Personal Computers. So far, I'm still learning and keep on playing with some tools that can be used in the cybersecurity space and do some research on the current trends to keep updated.
+I am a degree holder of Information Technology in the Philippines and got my Masters Degree in Cybersecurity at University of Nevada, Reno. I am currently an IT Processing Technician at Executive Personal Computers. So far, I'm still learning and keep on playing with some tools that can be used in the cybersecurity space and do some research on the current trends to keep updated.
 
 
 ## Objective
