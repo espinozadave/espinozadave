@@ -1,6 +1,10 @@
 # Hello, I'm Dave Espinoza
 
-I am a degree holder of Information Technology in the Philippines and got my Masters Degree in Cybersecurity at University of Nevada, Reno. I am currently an IT Processing Technician at Executive Personal Computers. So far, I'm still learning and keep on playing with some tools that can be used in the cybersecurity space and do some research on the current trends to keep updated.
+I am an aspiring cybersecurity professional with a strong security mindset and a commitment to protecting individuals and organizations from evolving cyber threats. I am highly adaptable and continuously driven to learn new attack techniques, defensive strategies, and technologies in a fast-paced cybersecurity landscape.
+
+Through hands-on academic experience, I learned how to analyze application vulnerabilities and document security findings to help mitigate risk and strengthen system defenses. I have hands-on experience in a Kali Linux environment, using tools such as Nmap for network discovery and reconnaissance, which has strengthened my understanding of system communication and attack surfaces. However, with the rapid growth of technology, I believe that I still have a long way to go, and this fuels my eagerness to learn more.
+
+Guided by strong ethical values, I adhere strictly to laws, policies, and organizational procedures while prioritizing the protection of sensitive information. My strengths in learning quickly, maintaining a strong security mindset, and applying technical problem-solving skills enable me to support organizational security goals and help safeguard people’s data against threat actors.
 
 
 ## Objective
