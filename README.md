@@ -46,3 +46,6 @@ My adventure in the technology world has led me to develop a passion for cyberse
 ## Projects
 - Encryption/Decryption
 - Vulnerability Scanning
+
+## Certifications
+- Foundation of Cybersecurity (Google)
