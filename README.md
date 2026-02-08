@@ -19,7 +19,7 @@ My adventure in the technology world has led me to develop a passion for cyberse
 | **Security Controls Evaluation**<br>Risk Management | **Organizational Risk & CIA Triad Assessment**<br>- Evaluated security controls<br>- Identified risks impacting confidentiality, integrity, and availability |
 | **CIA Triad Principles**<br>Confidentiality, Integrity, Availability | **Risk Impact Analysis**<br>- Assessed control gaps affecting data protection and system availability |
 | **Secure Design Principles (OWASP)** | **Secure Design & OWASP Risk Analysis**<br>- Applied OWASP secure design principles<br>- Identified common application security risks |
-| **Security Auditing (Internal Audit Focus)** | **Internal Security Audit Case Study**<br>[View Audit Template](security-assessments/internal-security-audit/)- Reviewed policies and procedures<br>- Documented findings and remediation recommendations |
+| **Security Auditing (Internal Audit Focus)** | **Internal Security Audit Case Study**<br>[View Audit Template](security-assessments/internal-security-audit/)<br>- Reviewed policies and procedures<br>- Documented findings and remediation recommendations |
 | **Compliance & Control Review** | **Governance & Compliance Assessment**<br>- Evaluated compliance with security best practices<br>- Assessed alignment with regulatory requirements |
 | - Vulnerability Scanning <br> - Network Scanning <br> - Penetration Testing <br> - Vulnerability Assessment Report <br> - Linux OS | <a href="https://github.com/espinozadave/Vulnerability-Project">Vulnerability Scanning Project</a>|
 | Encryption/Decryption of AES, and other modes, and RSA using Python  | <a href="https://github.com/espinozadave/Home-Lab.git">Encryption/Decryption</a>|
