@@ -21,7 +21,6 @@ My adventure in the technology world has led me to develop a passion for cyberse
 | **Secure Design Principles (OWASP)** | **Secure Design & OWASP Risk Analysis**<br>- Applied OWASP secure design principles<br>- Identified common application security risks |
 | **Security Auditing (Internal Audit Focus)** | **Internal Security Audit Case Study**<br>- Reviewed policies and procedures<br>- Documented findings and remediation recommendations |
 | **Compliance & Control Review** | **Governance & Compliance Assessment**<br>- Evaluated compliance with security best practices<br>- Assessed alignment with regulatory requirements |
-
 | - Vulnerability Scanning <br> - Network Scanning <br> - Penetration Testing <br> - Vulnerability Assessment Report <br> - Linux OS | <a href="https://github.com/espinozadave/Vulnerability-Project">Vulnerability Scanning Project</a>|
 | Encryption/Decryption of AES, and other modes, and RSA using Python  | <a href="https://github.com/espinozadave/Home-Lab.git">Encryption/Decryption</a>|
 | Network Traffic Monitoring and Attack Detection | <a href="">On-going</a>|
