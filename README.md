@@ -55,3 +55,4 @@ My adventure in the technology world has led me to develop a passion for cyberse
 
 ## Certifications
 - Foundation of Cybersecurity (Google)
+- Play It Safe: Manage Security Risks (Google)
