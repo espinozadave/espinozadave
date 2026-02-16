@@ -43,9 +43,36 @@
       text-align: center;
       margin-top: 40px;
     }
+    .zoom-img {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    }
+
+    .zoom-img:hover {
+    transform: scale(1.05);
+    }
+
+
   </style>
 </head>
 <body>
+
+    <!-- Image Zoom Modal -->
+<div class="modal fade" id="imageModal" tabindex="-1">
+  <div class="modal-dialog modal-fullscreen modal-dialog-centered">
+    <div class="modal-content bg-dark">
+      <div class="modal-body text-center">
+        <img id="modalImage" src="" class="img-fluid rounded">
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function showImage(src) {
+    document.getElementById("modalImage").src = src;
+  }
+</script>
 
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -114,6 +141,67 @@
     Your task is to review the IT manager’s scope, goals, and risk assessment report. Then, perform an internal audit by completing a controls and compliance checklist.</p>
   </div>
 
+
+    <!-- Evidence Screenshots -->
+    <h4 class="section-title">Botium Toys Scope, Goals, and Risk Assessment Report</h4>
+<section class="py-1">
+  <div class="container">
+    <div class="row g-4">
+      
+      <!-- Image 1 -->
+      <div class="col-md-10">
+        <img src="assets/Botium-Toys Scope-Goals-and-Risk-Assessment-Report.png" 
+             class="img-fluid rounded shadow-sm zoom-img" 
+             data-bs-toggle="modal" 
+             data-bs-target="#imageModal"
+             onclick="showImage(this.src)"
+             alt="Audit Evidence 1">
+      </div>
+      </div>
+      </div>
+      </section>
+
+<h4 class="section-title">Controls and Compliance Checklist</h4>
+<section class="py-1">
+  <div class="container">
+    <div class="row g-4">
+
+      <!-- Image 1 -->
+      <div class="col-md-4">
+        <img src="assets/Controls-and-compliance-checklist1.png"
+             class="img-fluid rounded shadow-sm zoom-img"
+             data-bs-toggle="modal"
+             data-bs-target="#imageModal"
+             onclick="showImage(this.src)"
+             alt="Checklist 1">
+      </div>
+
+      <!-- Image 2 -->
+      <div class="col-md-4">
+        <img src="assets/Controls-and-compliance-checklist2.png"
+             class="img-fluid rounded shadow-sm zoom-img"
+             data-bs-toggle="modal"
+             data-bs-target="#imageModal"
+             onclick="showImage(this.src)"
+             alt="Checklist 2">
+      </div>
+
+      <!-- Image 3 -->
+      <div class="col-md-4">
+        <img src="assets/Controls-and-compliance-checklist3.png"
+             class="img-fluid rounded shadow-sm zoom-img"
+             data-bs-toggle="modal"
+             data-bs-target="#imageModal"
+             onclick="showImage(this.src)"
+             alt="Checklist 3">
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
   <!-- Documentation -->
   <h4 class="section-title">Full Audit Documentation</h4>
   <p>
@@ -121,18 +209,26 @@
     It demonstrates audit structure, control evaluation, risk analysis, and documentation practices.
   </p>
 
-  <p>
-    👉 <a href="assets/pdfs/audit-template.pdf" target="_blank">
-      Internal Security Audit – Sample (PDF)
-    </a>
-  </p>
 
-</div>
+  <div class="card p-4">
+  <p>👉 Internal Security Audit – Sample (PDF)</p>
+    <a href="assets/Botium Toys Scope goals and risk assessment report.pdf" target="_blank">Botium Toys Scope goals and risk assessment report </a>
+    <a href="assets/Control Categories.pdf" target="_blank">Control Categories </a>
+    <a href="assets/Controls and compliance checklist.pdf" target="_blank">Controls and compliance checklist </a>
+
+  </div>
+
+
+
 
 <!-- Footer -->
 <footer class="footer">
   <p>© 2026 Dave Espinoza</p>
 </footer>
+
+<!-- Bootstrap JS (required for modal) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
 
 </body>
 </html>
