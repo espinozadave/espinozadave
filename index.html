@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Cybersecurity Portfolio</title>
   <!-- Bootstrap CSS -->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
       body {
@@ -55,7 +56,123 @@
       }
       .table-striped tbody tr:nth-of-type(even) {
         background-color: transparent !important;
+      }
+      #topBtn {
+        position: fixed;
+        bottom: 25px;
+        right: 25px;
+        z-index: 99;
+        width: 55px;
+        height: 55px;
+        border: none;
+        outline: none;
+        background-color: #0d6efd;
+        color: white;
+        cursor: pointer;
+        border-radius: 50%;   /* makes it circle */
+        font-size: 20px;
+        display: none;
+        /* center the arrow perfectly */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      #topBtn:hover {
+        background-color: #0b5ed7;
+      }
+      .cert-card {
+        background-color: #1e1e1e;
+        color: white;
+      }
+      .cert-img {
+        height: 180px;
+        width: 100%;
+        object-fit: cover;
+      }
+      .cert-logo {
+        height: 18px;
+        width: auto;
+      }
+      .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.9);
+    }
+    .modal-content {
+      position: relative;
+      width: 80%;
+      height: 80%;
+      margin: 5% auto;
+    }
+    .modal iframe {
+      width: 100%;
+      height: 100%;
+      border-radius: 8px;
+    }
+    .close-btn {
+      position: absolute;
+      top: -40px;
+      right: 0;
+      background: #ff4d4d;
+      border: none;
+      padding: 8px 14px;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+/* Cybersecurity glow hover effect */
+.cyber-card {
+  background: #1e1e1e;
+  border: 1px solid #333;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
 }
+
+.cyber-card * {
+  position: relative;
+  z-index: 2;
+}
+
+.cyber-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 6px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  box-shadow: 0 0 15px rgba(13, 110, 253, 0.6),
+              0 0 30px rgba(13, 110, 253, 0.3);
+  pointer-events: none; /* allows clicks to pass through */
+}
+
+.cyber-card:hover::before {
+  opacity: 1;
+}
+
+.cyber-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Light mode */
+body.light-mode {
+  background-color: #f8f9fa;
+  color: #212529;
+}
+
+body.light-mode .card {
+  background-color: #ffffff;
+  color: #212529;
+  border: 1px solid #ddd;
+}
+
+
 
         
   </style>
@@ -73,9 +190,10 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Case Studies & Projects</a></li>
           <li class="nav-item"><a class="nav-link" href="#about">About Me</a></li>
           <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item"><button class="btn btn-outline-light btn-sm ms-2" onclick="toggleMode()">🌙</button></li>
         </ul>
       </div>
     </div>
@@ -179,7 +297,6 @@
               <ul class="small mb-0">
                 <li>Reviewed policies and procedures</li>
                 <li>Documented findings and remediation recommendations</li>
-                <li><a href="internal-audit.html">View Audit Template</a></li>
               </ul>
             </td>
           </tr>
@@ -249,32 +366,124 @@
 
 
 
-  <!-- Projects / Case Studies Section -->
-  <section id="projects" class="projects">
-    <div class="container">
-      <h2 class="text-center mb-5">Case Studies & Projects</h2>
-      <div class="row row-cols-1 row-cols-md-2 g-4">
-        <div class="col">
-          <div class="card h-100">
-            <img src="assets/screenshot1.png" class="card-img-top" alt="Audit Screenshot">
-            <div class="card-body">
-              <h5 class="card-title">Internal Security Audit</h5>
-              <p class="card-text">Performed an internal security audit for a fictional company, documenting gaps and remediation.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card h-100">
-            <img src="assets/screenshot2.png" class="card-img-top" alt="Course Certificate">
-            <div class="card-body">
-              <h5 class="card-title">Google Cybersecurity Course</h5>
-              <p class="card-text">Completed “Play It Safe: Manage Security Risks” and demonstrated skills in framework assessments.</p>
-            </div>
+<!-- Case Studies & Projects Section -->
+<section id="projects" class="projects py-5">
+  <div class="container">
+    <h2 class="text-center mb-5">Case Studies & Projects</h2>
+
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+
+      <!-- Internal Security Audit -->
+      <div class="col">
+        <div class="card cyber-card h-100 shadow-sm border-secondary">
+          <img src="assets/Botium-Toys Scope-Goals-and-Risk-Assessment-Report.png" class="card-img-top" alt="Internal Audit Screenshot">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title text-white">Internal Security Audit</h5>
+            <p class="card-text text-light flex-grow-1">
+              Conducted a scenario-based internal security audit for a fictional company, identifying risks, evaluating controls, and assessing compliance against NIST CSF, SP 800-53, CIA Triad, and OWASP principles.
+            </p>
+            <a href="internal-audit.html" class="btn btn-outline-primary mt-auto">View Case Study</a>
           </div>
         </div>
       </div>
+
+      <!-- Placeholder Project -->
+      <div class="col">
+        <div class="card cyber-card h-100 shadow-sm border-secondary">
+          <img src="assets/project-placeholder.png" class="card-img-top" alt="Project Placeholder">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title text-white">Course Project / Other Case Study</h5>
+            <p class="card-text text-light flex-grow-1">
+              Description of another project or case study can go here.
+            </p>
+            <a href="#" class="btn btn-outline-primary mt-auto disabled">Coming Soon</a>
+          </div>
+        </div>
+      </div>
+
     </div>
-  </section>
+  </div>
+</section>
+
+
+<!-- Certifications Section -->
+<section id="certifications" class="certifications py-5">
+  <div class="container">
+    <h2 class="text-center mb-4">Certifications</h2>
+
+    <!-- Google Cybersecurity Certificate Progress -->
+    <div class="mb-5">
+      <h5 class="text-white">Google Cybersecurity Professional Certificate</h5>
+      <div class="progress" style="height: 20px;">
+        <div class="progress-bar bg-success" style="width: 25%;">2 of 8 Courses Completed</div>
+      </div>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+
+      <!-- Certificate 1 -->
+      <div class="col">
+        <div class="card cyber-card h-100 shadow-sm border-secondary cert-card">
+          <img src="assets/Foundations of Cybersecurity Certifications.jpg" class="card-img-top cert-img" alt="Foundations of Cybersecurity">
+          <div class="card-body d-flex flex-column">
+            <div class="d-flex align-items-center mb-2">
+              <img src="assets/google-logo.png" class="cert-logo" alt="Google Logo">
+              <img src="assets/coursera-logo.png" class="cert-logo ms-2" alt="Coursera Logo">
+            </div>
+            <h5 class="card-title">Foundations of Cybersecurity</h5>
+            <p class="card-text flex-grow-1">
+              Core security principles, risk management, and cybersecurity roles in protecting organizations.
+            </p>
+            <button class="btn btn-outline-primary mt-auto" onclick="openModal('assets/Foundations of Cybersecurity.pdf')">
+              View Certificate
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Certificate 2 -->
+      <div class="col">
+        <div class="card cyber-card h-100 shadow-sm border-secondary cert-card">
+          <img src="assets/Play It Safe - Manage Security Risks.png" class="card-img-top cert-img" alt="Play It Safe Certificate">
+          <div class="card-body d-flex flex-column">
+            <div class="d-flex align-items-center mb-2">
+              <img src="assets/google-logo.png" class="cert-logo" alt="Google Logo">
+              <img src="assets/coursera-logo.png" class="cert-logo ms-2" alt="Coursera Logo">
+            </div>
+            <h5 class="card-title">Play It Safe: Manage Security Risks</h5>
+            <p class="card-text flex-grow-1">
+              Learned risk management strategies, threat modeling, and security frameworks used to protect organizational assets.
+            </p>
+            <button class="btn btn-outline-primary mt-auto" onclick="openModal('assets/Play It Safe - Manage Security Risks.pdf')">
+              View Certificate
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Certificate 3: In Progress -->
+      <div class="col">
+        <div class="card cyber-card h-100 shadow-sm border-secondary cert-card">
+          <img src="assets/cert-in-progress.png" class="card-img-top cert-img" alt="In Progress">
+          <div class="card-body d-flex flex-column">
+            <div class="d-flex align-items-center mb-2">
+              <img src="assets/google-logo.png" class="cert-logo" alt="Google Logo">
+              <img src="assets/coursera-logo.png" class="cert-logo ms-2" alt="Coursera Logo">
+            </div>
+            <h5 class="card-title">Certificate in Progress</h5>
+            <p class="card-text flex-grow-1">
+              Continuing training in SIEM tools, threat detection, incident response, and security operations.
+            </p>
+            <span class="badge bg-warning text-dark mt-auto">In Progress</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
 
 <!-- About Me Section with Photo -->
 <section id="about" class="about py-5" style="background-color: #1f1f1f; color: #f5f5f5;">
@@ -305,12 +514,57 @@
   <!-- Footer -->
   <footer class="footer" id="contact">
     <div class="container">
-      <p>© 2026 Dave Espinoza <br> Contact: <a href="mailto:beerus@example.com">
-        espinozadave@yahoo.com | 702-427-2944</a></p>
+      <p>© 2026 Dave Espinoza <br> Email: <a href="mailto:espinozadave@yahoo.com">
+        espinozadave@yahoo.com</a><br>
+        Contact #: 702-427-2944
+      </p>
+
     </div>
   </footer>
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<button onclick="scrollToTop()" id="topBtn" title="Back to top">⬆</button>
+<script>
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  // Show button when scrolling
+  window.onscroll = function () {
+    document.getElementById("topBtn").style.display =
+      document.documentElement.scrollTop > 200 ? "block" : "none";
+  };
+
+  function openModal(pdfUrl) {
+  document.getElementById("certFrame").src = pdfUrl;
+  document.getElementById("certModal").style.display = "block";
+}
+
+function closeModal() {
+  document.getElementById("certModal").style.display = "none";
+  document.getElementById("certFrame").src = "";
+}
+
+// Close when clicking outside modal
+document.getElementById("certModal").onclick = closeModal;
+
+function toggleMode() {
+  document.body.classList.toggle("light-mode");
+}
+
+</script>
+
+<!-- Modal Viewer -->
+<div id="certModal" class="modal">
+  <div class="modal-content" onclick="event.stopPropagation()">
+    <iframe id="certFrame" src="" frameborder="0"></iframe>
+    <button class="close-btn" onclick="closeModal()">Close</button>
+  </div>
+</div>
+
+
+
+
 </body>
 </html>

@@ -14,28 +14,23 @@
       color: #f5f5f5;
       font-family: Arial, sans-serif;
     }
-
     .section-title {
       border-left: 4px solid #0d6efd;
       padding-left: 10px;
       margin-top: 40px;
       margin-bottom: 20px;
     }
-
     .card {
       background-color: #1e1e1e;
       border: 1px solid #333;
       color: #f5f5f5;
     }
-
     a {
       color: #66b2ff;
     }
-
     a:hover {
       color: #99ccff;
     }
-
     .footer {
       background: #1f1f1f;
       color: #f5f5f5;
@@ -47,40 +42,84 @@
     cursor: pointer;
     transition: transform 0.3s ease;
     }
-
     .zoom-img:hover {
     transform: scale(1.05);
     }
+#topBtn {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 99;
+
+  width: 55px;
+  height: 55px;
+  border: none;
+  outline: none;
+  background-color: #0d6efd;
+  color: white;
+  cursor: pointer;
+
+  border-radius: 50%;   /* makes it circle */
+  font-size: 20px;
+
+  display: none;
+
+  /* center the arrow perfectly */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#topBtn:hover {
+  background-color: #0b5ed7;
+}
 
 
   </style>
 </head>
 <body>
 
-    <!-- Image Zoom Modal -->
+<!-- Image Zoom Modal -->
 <div class="modal fade" id="imageModal" tabindex="-1">
-  <div class="modal-dialog modal-fullscreen modal-dialog-centered">
-    <div class="modal-content bg-dark">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content bg-dark text-white">
+
+      <!-- Modal Header with Close Button -->
+      <div class="modal-header border-0">
+        <h5 class="modal-title">Image Preview</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal Body -->
       <div class="modal-body text-center">
         <img id="modalImage" src="" class="img-fluid rounded">
       </div>
+
     </div>
   </div>
 </div>
+
 
 <script>
   function showImage(src) {
     document.getElementById("modalImage").src = src;
   }
+
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  // Show button when scrolling
+  window.onscroll = function () {
+    document.getElementById("topBtn").style.display =
+      document.documentElement.scrollTop > 200 ? "block" : "none";
+  };
 </script>
 
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container">
-    <a class="navbar-brand" href="index.html">Dave Portfolio</a>
-    <div class="ms-auto">
-      <a href="index.html" class="btn btn-outline-light btn-sm">🏠 Home</a>
-    </div>
+    <a class="navbar-brand" href="index.html">🔙 Dave Portfolio</a>
   </div>
 </nav>
 
@@ -217,17 +256,24 @@
     <a href="assets/Controls and compliance checklist.pdf" target="_blank">Controls and compliance checklist </a>
 
   </div>
-
-
-
-
+  
 <!-- Footer -->
 <footer class="footer">
-  <p>© 2026 Dave Espinoza</p>
+  <div class="container text-center">
+
+    <!-- Buttons -->
+    <div class="mb-3">
+      <a href="index.html" class="btn btn-outline-light me-2">🔙 Back to Portfolio</a>
+    </div>
+
+    <p class="mb-0">© 2026 Dave Espinoza</p>
+  </div>
 </footer>
+
 
 <!-- Bootstrap JS (required for modal) -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<button onclick="scrollToTop()" id="topBtn" title="Back to top">⬆</button>
 
 
 </body>
