@@ -14,23 +14,23 @@
       color: #f5f5f5;
       font-family: Arial, sans-serif;
     }
+
+    a { color: #66b2ff; }
+    a:hover { color: #99ccff; }
+
     .section-title {
       border-left: 4px solid #0d6efd;
       padding-left: 10px;
       margin-top: 40px;
       margin-bottom: 20px;
     }
+
     .card {
       background-color: #1e1e1e;
       border: 1px solid #333;
       color: #f5f5f5;
     }
-    a {
-      color: #66b2ff;
-    }
-    a:hover {
-      color: #99ccff;
-    }
+
     .footer {
       background: #1f1f1f;
       color: #f5f5f5;
@@ -38,40 +38,177 @@
       text-align: center;
       margin-top: 40px;
     }
-    .zoom-img {
-    cursor: pointer;
-    transition: transform 0.3s ease;
+
+    /* ----------------- Cyber Glow Effect ----------------- */
+    .cyber-card, .btn-glow, .pdf-link, #topBtn, .img-container, .navbar-glow, .navbar-glow .navbar-brand {
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      z-index: 1;
     }
-    .zoom-img:hover {
-    transform: scale(1.05);
+
+    /* Glowing layer */
+    .cyber-card::before,
+    .btn-glow::before,
+    .pdf-link::before,
+    #topBtn::before,
+    .img-container::before,
+    .navbar-glow::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 6px;
+      opacity: 0;
+      pointer-events: none;
+      box-shadow: 0 0 15px rgba(13,110,253,0.6),
+                  0 0 30px rgba(13,110,253,0.3),
+                  0 0 45px rgba(13,110,253,0.2);
+      transition: opacity 0.3s ease, box-shadow 0.3s ease;
     }
-#topBtn {
-  position: fixed;
-  bottom: 25px;
-  right: 25px;
-  z-index: 99;
 
-  width: 55px;
-  height: 55px;
-  border: none;
-  outline: none;
-  background-color: #0d6efd;
-  color: white;
-  cursor: pointer;
+    /* Hover glow */
+    .cyber-card:hover::before,
+    .btn-glow:hover::before,
+    .pdf-link:hover::before,
+    #topBtn:hover::before,
+    .img-container:hover::before,
+    .navbar-glow:hover::before {
+      opacity: 1;
+    }
 
-  border-radius: 50%;   /* makes it circle */
-  font-size: 20px;
+    .cyber-card:hover,
+    .btn-glow:hover,
+    .pdf-link:hover,
+    #topBtn:hover,
+    .img-container:hover,
+    .navbar-glow:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 25px rgba(13,110,253,0.5),
+                  0 0 50px rgba(13,110,253,0.3);
+    }
 
-  display: none;
+    .cyber-card *, .btn-glow *, .pdf-link *, .img-container * {
+      position: relative;
+      z-index: 2;
+    }
 
-  /* center the arrow perfectly */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+    /* Navbar brand glow */
+    .navbar-glow .navbar-brand {
+      transition: color 0.3s ease, text-shadow 0.3s ease;
+      z-index: 2;
+    }
 
-#topBtn:hover {
-  background-color: #0b5ed7;
+    .navbar-glow .navbar-brand:hover {
+      color: #0d6efd;
+      text-shadow: 0 0 10px #0d6efd, 0 0 20px #0d6efd, 0 0 30px #0d6efd;
+    }
+
+    /* Image container for glow + hover lift */
+    .img-container {
+      border-radius: 8px;
+      cursor: pointer;
+      display: inline-block;
+    }
+
+    /* PDF links glow */
+    .pdf-link {
+      display: inline-block;
+      padding: 6px 12px;
+      margin: 4px 0;
+      background-color: #1e1e1e;
+      border: 1px solid #333;
+      border-radius: 6px;
+      color: #66b2ff;
+      text-decoration: none;
+    }
+
+    .pdf-link:hover {
+      color: #fff;
+      background-color: #0d6efd;
+    }
+
+    /* Top button: always lower-right */
+    #topBtn {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;      /* Lower-right */
+      z-index: 999;
+      width: 55px;
+      height: 55px;
+      border: none;
+      outline: none;
+      background-color: #0d6efd;
+      color: white;
+      cursor: pointer;
+      border-radius: 50%;
+      font-size: 20px;
+      display: none;   /* hidden until scroll */
+      box-shadow: 0 0 15px rgba(13,110,253,0.6),
+                  0 0 30px rgba(13,110,253,0.3),
+                  0 0 45px rgba(13,110,253,0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    #topBtn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 25px rgba(13,110,253,0.6),
+                  0 0 50px rgba(13,110,253,0.3);
+    }
+
+    /* Modal content */
+    #imageModal .modal-content {
+      background: #1e1e1e;
+      border: none;
+      border-radius: 8px;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative; /* important for close button positioning */
+    }
+
+    /* Modal image */
+    #imageModal img {
+      max-width: 90vw;
+      max-height: 90vh;
+      width: auto;
+      height: auto;
+      border-radius: 6px;
+      box-shadow: 0 0 25px rgba(13,110,253,0.5),
+                  0 0 50px rgba(13,110,253,0.3);
+      transition: box-shadow 0.3s ease;
+    }
+
+    /* Hover glow on image */
+    #imageModal img:hover {
+      box-shadow: 0 0 40px rgba(13,110,253,0.7),
+                  0 0 70px rgba(13,110,253,0.4);
+    }
+
+    /* Close button fixed inside modal, always top-right of viewport */
+    #imageModal .btn-danger {
+      position: absolute;      /* changed from absolute */
+      top: 10px;            /* distance from top of viewport */
+      left: 1420px;          /* distance from right of viewport */
+      z-index: 1050;        /* above everything */
+      padding: 8px 12px;
+      font-size: 18px;
+      border-radius: 50%;
+      cursor: pointer;
+      background-color: #ff4d4d;
+      color: #fff;
+      border: none;
+      box-shadow: 0 0 10px #ff4d4d, 0 0 20px #ff4d4d;
+      transition: box-shadow 0.3s ease, transform 0.2s ease;
+    }
+
+    #imageModal .btn-danger:hover {
+      box-shadow: 0 0 15px #ff4d4d, 0 0 30px #ff4d4d;
+      transform: scale(1.1);
+    }
+
+    #imageModal .modal-content {
+  padding: 1rem; /* space for close button */
 }
 
 
@@ -79,60 +216,19 @@
 </head>
 <body>
 
-<!-- Image Zoom Modal -->
-<div class="modal fade" id="imageModal" tabindex="-1">
-  <div class="modal-dialog modal-lg modal-dialog-centered">
-    <div class="modal-content bg-dark text-white">
-
-      <!-- Modal Header with Close Button -->
-      <div class="modal-header border-0">
-        <h5 class="modal-title">Image Preview</h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-      </div>
-
-      <!-- Modal Body -->
-      <div class="modal-body text-center">
-        <img id="modalImage" src="" class="img-fluid rounded">
-      </div>
-
-    </div>
-  </div>
-</div>
-
-
-<script>
-  function showImage(src) {
-    document.getElementById("modalImage").src = src;
-  }
-
-  function scrollToTop() {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }
-
-  // Show button when scrolling
-  window.onscroll = function () {
-    document.getElementById("topBtn").style.display =
-      document.documentElement.scrollTop > 200 ? "block" : "none";
-  };
-</script>
-
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-glow">
   <div class="container">
     <a class="navbar-brand" href="index.html">🔙 Dave Portfolio</a>
   </div>
 </nav>
 
 <div class="container py-5">
-
   <h1 class="mb-4">Internal Security Audit – Sample Assessment</h1>
 
   <!-- Overview -->
   <h4 class="section-title">Overview</h4>
-  <p>
-    This security audit was conducted as part of the Google Cybersecurity Professional Certificate program.
-    The assessment focuses on evaluating organizational security controls, risk exposure, and alignment with security best practices.
-  </p>
+  <p>This security audit was conducted as part of the Google Cybersecurity Professional Certificate program. The assessment focuses on evaluating organizational security controls, risk exposure, and alignment with security best practices.</p>
 
   <!-- Scope -->
   <h4 class="section-title">Scope</h4>
@@ -143,7 +239,7 @@
     <li>Internal audit methodology</li>
   </ul>
 
-  <!-- Frameworks -->
+  <!-- Frameworks & Concepts Applied -->
   <h4 class="section-title">Frameworks & Concepts Applied</h4>
   <ul>
     <li>NIST Cybersecurity Framework (CSF)</li>
@@ -163,118 +259,104 @@
 
   <!-- Scenario -->
   <h4 class="section-title">Scenario</h4>
-  <div class="card p-4">
+  <div class="card p-4 cyber-card">
     <p>
-    <strong>This scenario is based on a fictional company:</strong><br><br>
-
-    Botium Toys is a small U.S. business that develops and sells toys. The business has a single physical location, which serves as their main office, a storefront, and warehouse for their products. 
-    However, Botium Toy’s online presence has grown, attracting customers in the U.S. and abroad. As a result, their information technology (IT) department is under increasing pressure to support their online market worldwide.</p>
-
-    The manager of the IT department has decided that an internal IT audit needs to be conducted. She's worried about maintaining compliance and business operations as the company grows without a clear plan. 
-    She believes an internal audit can help better secure the company’s infrastructure and help them identify and mitigate potential risks, threats, or vulnerabilities to critical assets. 
-    The manager is also interested in ensuring that they comply with regulations related to internally processing and accepting online payments and conducting business in the European Union (E.U.).</p>
-
-    The IT manager starts by implementing the National Institute of Standards and Technology Cybersecurity Framework (NIST CSF), establishing an audit scope and goals, listing assets currently managed by the IT department, and completing a risk assessment. 
-    The goal of the audit is to provide an overview of the risks and/or fines that the company might experience due to the current state of their security posture.
-
-    Your task is to review the IT manager’s scope, goals, and risk assessment report. Then, perform an internal audit by completing a controls and compliance checklist.</p>
+      <strong>This scenario is based on a fictional company:</strong><br><br>
+      Botium Toys is a small U.S. business that develops and sells toys. The business has a single physical location, which serves as their main office, a storefront, and warehouse for their products. However, Botium Toy’s online presence has grown, attracting customers in the U.S. and abroad. As a result, their IT department is under increasing pressure to support their online market worldwide.
+    </p>
+    <p>
+      The manager of the IT department has decided that an internal IT audit needs to be conducted. She's worried about maintaining compliance and business operations as the company grows without a clear plan. She believes an internal audit can help better secure the company’s infrastructure and help them identify and mitigate potential risks, threats, or vulnerabilities to critical assets. The manager is also interested in ensuring that they comply with regulations related to internally processing and accepting online payments and conducting business in the European Union (E.U.).
+    </p>
+    <p>
+      The IT manager starts by implementing the NIST CSF, establishing an audit scope and goals, listing assets currently managed by the IT department, and completing a risk assessment. The goal of the audit is to provide an overview of the risks and/or fines that the company might experience due to the current state of their security posture.
+    </p>
+    <p>Your task is to review the IT manager’s scope, goals, and risk assessment report. Then, perform an internal audit by completing a controls and compliance checklist.</p>
   </div>
 
-
-    <!-- Evidence Screenshots -->
-    <h4 class="section-title">Botium Toys Scope, Goals, and Risk Assessment Report</h4>
-<section class="py-1">
-  <div class="container">
-    <div class="row g-4">
-      
-      <!-- Image 1 -->
-      <div class="col-md-10">
-        <img src="assets/Botium-Toys Scope-Goals-and-Risk-Assessment-Report.png" 
-             class="img-fluid rounded shadow-sm zoom-img" 
-             data-bs-toggle="modal" 
-             data-bs-target="#imageModal"
-             onclick="showImage(this.src)"
-             alt="Audit Evidence 1">
+  <!-- Evidence Screenshots -->
+  <h4 class="section-title">Botium Toys Scope, Goals, and Risk Assessment Report</h4>
+  <div class="row g-4">
+    <div class="col-md-10">
+      <div class="img-container">
+        <img src="assets/Botium-Toys Scope-Goals-and-Risk-Assessment-Report.png" class="img-fluid rounded" onclick="showImage(this.src)" alt="Audit Evidence 1">
       </div>
-      </div>
-      </div>
-      </section>
-
-<h4 class="section-title">Controls and Compliance Checklist</h4>
-<section class="py-1">
-  <div class="container">
-    <div class="row g-4">
-
-      <!-- Image 1 -->
-      <div class="col-md-4">
-        <img src="assets/Controls-and-compliance-checklist1.png"
-             class="img-fluid rounded shadow-sm zoom-img"
-             data-bs-toggle="modal"
-             data-bs-target="#imageModal"
-             onclick="showImage(this.src)"
-             alt="Checklist 1">
-      </div>
-
-      <!-- Image 2 -->
-      <div class="col-md-4">
-        <img src="assets/Controls-and-compliance-checklist2.png"
-             class="img-fluid rounded shadow-sm zoom-img"
-             data-bs-toggle="modal"
-             data-bs-target="#imageModal"
-             onclick="showImage(this.src)"
-             alt="Checklist 2">
-      </div>
-
-      <!-- Image 3 -->
-      <div class="col-md-4">
-        <img src="assets/Controls-and-compliance-checklist3.png"
-             class="img-fluid rounded shadow-sm zoom-img"
-             data-bs-toggle="modal"
-             data-bs-target="#imageModal"
-             onclick="showImage(this.src)"
-             alt="Checklist 3">
-      </div>
-
     </div>
   </div>
-</section>
 
-
-
-  <!-- Documentation -->
-  <h4 class="section-title">Full Audit Documentation</h4>
-  <p>
-    The following PDF provides a redacted version of the complete internal security audit used in this case study.
-    It demonstrates audit structure, control evaluation, risk analysis, and documentation practices.
-  </p>
-
-
-  <div class="card p-4">
-  <p>👉 Internal Security Audit – Sample (PDF)</p>
-    <a href="assets/Botium Toys Scope goals and risk assessment report.pdf" target="_blank">Botium Toys Scope goals and risk assessment report </a>
-    <a href="assets/Control Categories.pdf" target="_blank">Control Categories </a>
-    <a href="assets/Controls and compliance checklist.pdf" target="_blank">Controls and compliance checklist </a>
-
+  <h4 class="section-title">Controls and Compliance Checklist</h4>
+  <div class="row g-4">
+    <div class="col-md-4">
+      <div class="img-container">
+        <img src="assets/Controls-and-compliance-checklist1.png" class="img-fluid rounded" onclick="showImage(this.src)" alt="Checklist 1">
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="img-container">
+        <img src="assets/Controls-and-compliance-checklist2.png" class="img-fluid rounded" onclick="showImage(this.src)" alt="Checklist 2">
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="img-container">
+        <img src="assets/Controls-and-compliance-checklist3.png" class="img-fluid rounded" onclick="showImage(this.src)" alt="Checklist 3">
+      </div>
+    </div>
   </div>
-  
+
+  <!-- PDFs -->
+  <h4 class="section-title">Full Audit Documentation</h4>
+  <div class="card p-4 cyber-card">
+    <p>👉 Internal Security Audit – Sample (PDF)</p>
+    <a href="assets/Botium Toys Scope goals and risk assessment report.pdf" target="_blank" class="pdf-link">Botium Toys Scope goals and risk assessment report</a><br>
+    <a href="assets/Control Categories.pdf" target="_blank" class="pdf-link">Control Categories</a><br>
+    <a href="assets/Controls and compliance checklist.pdf" target="_blank" class="pdf-link">Controls and compliance checklist</a>
+  </div>
+</div>
+
 <!-- Footer -->
 <footer class="footer">
   <div class="container text-center">
-
-    <!-- Buttons -->
     <div class="mb-3">
-      <a href="index.html" class="btn btn-outline-light me-2">🔙 Back to Portfolio</a>
+      <a href="index.html" class="btn btn-outline-light btn-glow me-2">🔙 Back to Portfolio</a>
     </div>
-
     <p class="mb-0">© 2026 Dave Espinoza</p>
   </div>
 </footer>
 
+<!-- Top button -->
+<button onclick="scrollToTop()" id="topBtn" class="btn-glow" title="Back to top">⬆</button>
 
-<!-- Bootstrap JS (required for modal) -->
+<!-- Zoom Modal -->
+<div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content p-0">
+      <img id="modalImage" src="" alt="Full-screen view" class="img-fluid rounded">
+      <button type="button" class="btn btn-danger" data-bs-dismiss="modal">✕</button>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<button onclick="scrollToTop()" id="topBtn" title="Back to top">⬆</button>
+
+<script>
+  // Initialize Bootstrap modal once
+ const imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
+
+function showImage(src) {
+  document.getElementById('modalImage').src = src;
+  imageModal.show();
+}
 
 
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+window.onscroll = function () {
+  document.getElementById("topBtn").style.display =
+    document.documentElement.scrollTop > 200 ? "block" : "none";
+};
+
+</script>
 </body>
 </html>

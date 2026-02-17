@@ -125,56 +125,208 @@
       border-radius: 5px;
       cursor: pointer;
     }
-/* Cybersecurity glow hover effect */
-.cyber-card {
-  background: #1e1e1e;
-  border: 1px solid #333;
-  transition: all 0.3s ease;
+    /* Cybersecurity glow hover effect for all cards */
+    .cyber-card {
+      background: #1e1e1e;
+      border: 1px solid #333;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      z-index: 1;
+      border-radius: 6px;
+      overflow: visible; /* <-- important: allows glow to escape */
+    }
+
+    /* Glowing layer */
+    .cyber-card::after {
+      content: "";
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      right: -10px;
+      bottom: -10px;
+      border-radius: 8px;
+      opacity: 0;
+      pointer-events: none;
+      background: transparent;
+      box-shadow: 0 0 30px rgba(13, 110, 253, 0.7),
+                  0 0 60px rgba(13, 110, 253, 0.4),
+                  0 0 90px rgba(13, 110, 253, 0.2);
+      transition: opacity 0.3s ease;
+      z-index: 0; /* sits below card content */
+    }
+
+    /* Hover effect */
+    .cyber-card:hover::after {
+      opacity: 1;
+    }
+
+    .cyber-card:hover {
+      transform: translateY(-5px);
+    }
+
+    /* Ensure card content is above the glow */
+    .cyber-card * {
+      position: relative;
+      z-index: 1;
+    }
+
+/* Navbar link glow on hover */
+.navbar .nav-link {
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.navbar .nav-link:hover {
+  color: #0d6efd; /* glowing color */
+  text-shadow: 0 0 5px #0d6efd,
+               0 0 10px #0d6efd,
+               0 0 15px #0d6efd;
+}
+
+/* Navbar background glow effect */
+.navbar:hover {
+  box-shadow: 0 0 15px rgba(13, 110, 253, 0.6),
+              0 0 30px rgba(13, 110, 253, 0.3);
+  transition: box-shadow 0.3s ease;
+}
+
+/* Smooth transition back when not hovered */
+.navbar {
+  transition: box-shadow 0.3s ease;
+}
+
+/* Floating button glow effect */
+#topBtn {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#topBtn:hover {
+  transform: scale(1.1); /* slight zoom on hover */
+  box-shadow: 0 0 10px #0d6efd,
+              0 0 20px #0d6efd,
+              0 0 30px #0d6efd,
+              0 0 40px #0d6efd;
+  animation: pulseGlow 1.5s infinite alternate;
+}
+
+/* Pulsing animation for cyber glow */
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 10px #0d6efd,
+                0 0 20px #0d6efd,
+                0 0 30px #0d6efd,
+                0 0 40px #0d6efd;
+  }
+  100% {
+    box-shadow: 0 0 20px #0d6efd,
+                0 0 40px #0d6efd,
+                0 0 60px #0d6efd,
+                0 0 80px #0d6efd;
+  }
+}
+
+/* Hero button glow effect */
+.hero .btn-glow {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero .btn-glow:hover {
+  transform: scale(1.1); /* slight zoom */
+  box-shadow: 0 0 10px #0d6efd,
+              0 0 20px #0d6efd,
+              0 0 30px #0d6efd,
+              0 0 40px #0d6efd;
+  animation: pulseGlow 1.5s infinite alternate;
+}
+
+/* Reuse the same pulseGlow animation */
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 10px #0d6efd,
+                0 0 20px #0d6efd,
+                0 0 30px #0d6efd,
+                0 0 40px #0d6efd;
+  }
+  100% {
+    box-shadow: 0 0 20px #0d6efd,
+                0 0 40px #0d6efd,
+                0 0 60px #0d6efd,
+                0 0 80px #0d6efd;
+  }
+}
+
+/* Universal glowing button effect */
+.btn-glow, button.btn, .btn-outline-primary {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
-  overflow: hidden;
   z-index: 1;
 }
 
-.cyber-card * {
-  position: relative;
-  z-index: 2;
+.btn-glow:hover, button.btn:hover, .btn-outline-primary:hover {
+  transform: scale(1.05); /* slight zoom */
+  box-shadow: 0 0 10px #0d6efd,
+              0 0 20px #0d6efd,
+              0 0 30px #0d6efd,
+              0 0 40px #0d6efd;
+  animation: pulseGlow 1.5s infinite alternate;
 }
 
-.cyber-card::before {
+/* Reusable pulse glow animation */
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 10px #0d6efd,
+                0 0 20px #0d6efd,
+                0 0 30px #0d6efd,
+                0 0 40px #0d6efd;
+  }
+  100% {
+    box-shadow: 0 0 20px #0d6efd,
+                0 0 40px #0d6efd,
+                0 0 60px #0d6efd,
+                0 0 80px #0d6efd;
+  }
+}
+/* Glowing hero button */
+.btn-glow {
+  background-color: #0d6efd; /* primary blue */
+  color: #fff;
+  border: none;
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  border-radius: 6px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 0 5px #0d6efd;
+}
+
+.btn-glow::before {
   content: "";
   position: absolute;
   inset: 0;
   border-radius: 6px;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease, box-shadow 0.3s ease;
+  pointer-events: none;
   box-shadow: 0 0 15px rgba(13, 110, 253, 0.6),
-              0 0 30px rgba(13, 110, 253, 0.3);
-  pointer-events: none; /* allows clicks to pass through */
+              0 0 30px rgba(13, 110, 253, 0.3),
+              0 0 45px rgba(13, 110, 253, 0.2);
 }
 
-.cyber-card:hover::before {
+.btn-glow:hover::before {
   opacity: 1;
 }
 
-.cyber-card:hover {
-  transform: translateY(-5px);
-}
-
-/* Light mode */
-body.light-mode {
-  background-color: #f8f9fa;
-  color: #212529;
-}
-
-body.light-mode .card {
-  background-color: #ffffff;
-  color: #212529;
-  border: 1px solid #ddd;
+.btn-glow:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 25px rgba(13, 110, 253, 0.5),
+              0 0 50px rgba(13, 110, 253, 0.3);
 }
 
 
 
-        
+   
   </style>
 </head>
 <body>
@@ -183,7 +335,7 @@ body.light-mode .card {
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="#">Dave Portfolio</a>
+      <a class="navbar-brand">Dave Portfolio</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -193,7 +345,6 @@ body.light-mode .card {
           <li class="nav-item"><a class="nav-link" href="#projects">Case Studies & Projects</a></li>
           <li class="nav-item"><a class="nav-link" href="#about">About Me</a></li>
           <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-          <li class="nav-item"><button class="btn btn-outline-light btn-sm ms-2" onclick="toggleMode()">🌙</button></li>
         </ul>
       </div>
     </div>
@@ -213,7 +364,7 @@ body.light-mode .card {
      Skilled at applying tools, frameworks, and playbooks to identify vulnerabilities and safeguard critical assets. 
      Continuously learning and adapting to strengthen systems and secure sensitive data.
      </p><br><br>
-      <a href="#skills" class="btn btn-light mt-3">View My Skills</a>
+     <a href="#skills" class="btn btn-light btn-glow mt-3">Explore My Cyber Skills</a>
     </div>
   </section>
 
@@ -366,14 +517,12 @@ body.light-mode .card {
 
 
 
-<!-- Case Studies & Projects Section -->
 <section id="projects" class="projects py-5">
   <div class="container">
     <h2 class="text-center mb-5">Case Studies & Projects</h2>
-
     <div class="row row-cols-1 row-cols-md-2 g-4">
 
-      <!-- Internal Security Audit -->
+      <!-- Internal Security Audit Case Study -->
       <div class="col">
         <div class="card cyber-card h-100 shadow-sm border-secondary">
           <img src="assets/Botium-Toys Scope-Goals-and-Risk-Assessment-Report.png" class="card-img-top" alt="Internal Audit Screenshot">
@@ -387,16 +536,16 @@ body.light-mode .card {
         </div>
       </div>
 
-      <!-- Placeholder Project -->
+      <!-- Project Coming Soon -->
       <div class="col">
         <div class="card cyber-card h-100 shadow-sm border-secondary">
           <img src="assets/project-placeholder.png" class="card-img-top" alt="Project Placeholder">
           <div class="card-body d-flex flex-column">
             <h5 class="card-title text-white">Course Project / Other Case Study</h5>
             <p class="card-text text-light flex-grow-1">
-              Description of another project or case study can go here.
+              Description of another project or case study can go here. You can update this once you have more completed coursework or hands-on projects.
             </p>
-            <a href="#" class="btn btn-outline-primary mt-auto disabled">Coming Soon</a>
+            <button class="btn btn-outline-primary mt-auto disabled">Coming Soon</button>
           </div>
         </div>
       </div>
@@ -406,12 +555,12 @@ body.light-mode .card {
 </section>
 
 
-<!-- Certifications Section -->
+
 <section id="certifications" class="certifications py-5">
   <div class="container">
     <h2 class="text-center mb-4">Certifications</h2>
 
-    <!-- Google Cybersecurity Certificate Progress -->
+    <!-- Certificate Progress -->
     <div class="mb-5">
       <h5 class="text-white">Google Cybersecurity Professional Certificate</h5>
       <div class="progress" style="height: 20px;">
@@ -461,7 +610,7 @@ body.light-mode .card {
         </div>
       </div>
 
-      <!-- Certificate 3: In Progress -->
+      <!-- In Progress -->
       <div class="col">
         <div class="card cyber-card h-100 shadow-sm border-secondary cert-card">
           <img src="assets/cert-in-progress.png" class="card-img-top cert-img" alt="In Progress">
@@ -482,6 +631,7 @@ body.light-mode .card {
     </div>
   </div>
 </section>
+
 
 
 
@@ -549,9 +699,6 @@ function closeModal() {
 // Close when clicking outside modal
 document.getElementById("certModal").onclick = closeModal;
 
-function toggleMode() {
-  document.body.classList.toggle("light-mode");
-}
 
 </script>
 
