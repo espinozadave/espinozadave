@@ -323,6 +323,19 @@
   box-shadow: 0 0 25px rgba(13, 110, 253, 0.5),
               0 0 50px rgba(13, 110, 253, 0.3);
 }
+.about-img {
+  max-width: 250px;
+  width: 100%;
+  border-radius: 50%; /* ensures perfect circle */
+}
+
+@media (max-width: 768px) {
+  .about-img {
+    max-width: 180px;
+  }
+}
+
+
 
 
 
@@ -636,28 +649,32 @@
 
 
 <!-- About Me Section with Photo -->
-<section id="about" class="about py-5" style="background-color: #1f1f1f; color: #f5f5f5;">
+<section id="about" class="py-5">
   <div class="container">
-    <h2 class="text-center mb-5">About Me</h2>
-
     <div class="row align-items-center">
-      <!-- Left: Photo -->
-      <div class="col-md-4 text-center mb-4 mb-md-0">
-        <img src="assets/profile.jpg" alt="Dave Espinoza" class="img-fluid rounded-circle" style="max-width: 250px;">
+
+      <!-- Profile Image -->
+      <div class="col-lg-4 col-md-5 text-center mb-4 mb-md-0">
+        <img src="assets/profile.jpg"
+             alt="Dave Espinoza"
+             class="img-fluid rounded-circle shadow about-img">
       </div>
 
-      <!-- Right: Professional Statement -->
-      <div class="col-md-8">
-        <h4 class="mb-3" style="text-align: left;">Professional Statement</h4>
-        <p class="text-justify small" style="text-align: justify;">
+      <!-- Professional Statement -->
+      <div class="col-lg-8 col-md-7">
+        <h2 class="about-title">About Me</h2>
+        <p class="text-justify small" style="text-align: justify; font-size: 12px;">
           I am an aspiring cybersecurity professional with a strong security mindset and a commitment to protecting individuals and organizations from evolving cyber threats. I am highly adaptable and continuously driven to learn new attack techniques, defensive strategies, and technologies in a fast-paced cybersecurity landscape.<br><br>
           Through hands-on academic experience, I learned how to analyze application vulnerabilities and document security findings to help mitigate risk and strengthen system defenses. I have hands-on experience in a Kali Linux environment, using tools such as Nmap for network discovery and reconnaissance, which has strengthened my understanding of system communication and attack surfaces. However, with the rapid growth of technology, I believe that I still have a long way to go, and this fuels my eagerness to learn more.<br><br>
           Guided by strong ethical values, I adhere strictly to laws, policies, and organizational procedures while prioritizing the protection of sensitive information. My strengths in learning quickly, maintaining a strong security mindset, and applying technical problem-solving skills enable me to support organizational security goals and help safeguard people’s data against threat actors.
         </p>
       </div>
+
     </div>
   </div>
 </section>
+
+
 
 
 

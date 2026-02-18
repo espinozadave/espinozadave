@@ -209,7 +209,28 @@
 
     #imageModal .modal-content {
   padding: 1rem; /* space for close button */
-}
+    }
+    .btn-cyber {
+      background: transparent;
+      text-decoration: none;   /* removes underline */
+      border: 2px solid #0d6efd;
+      color: #0d6efd;
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      transition: 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-cyber:hover {
+      color: #fff;
+      background: #0d6efd;
+      box-shadow: 0 0 15px rgba(13,110,253,0.6),
+                  0 0 30px rgba(13,110,253,0.4);
+      transform: translateY(-2px);
+    }
 
 
   </style>
@@ -270,7 +291,7 @@
     <p>
       The IT manager starts by implementing the NIST CSF, establishing an audit scope and goals, listing assets currently managed by the IT department, and completing a risk assessment. The goal of the audit is to provide an overview of the risks and/or fines that the company might experience due to the current state of their security posture.
     </p>
-    <p>Your task is to review the IT manager’s scope, goals, and risk assessment report. Then, perform an internal audit by completing a controls and compliance checklist.</p>
+    <p>My task is to review the IT manager’s scope, goals, and risk assessment report. Then, perform an internal audit by completing a controls and compliance checklist.</p>
   </div>
 
   <!-- Evidence Screenshots -->
@@ -316,7 +337,7 @@
 <footer class="footer">
   <div class="container text-center">
     <div class="mb-3">
-      <a href="index.html" class="btn btn-outline-light btn-glow me-2">🔙 Back to Portfolio</a>
+      <a href="index.html" class="btn-cyber me-2">🔙 Back to Portfolio</a>
     </div>
     <p class="mb-0">© 2026 Dave Espinoza</p>
   </div>
