@@ -334,16 +334,42 @@
     max-width: 180px;
   }
 }
+.cert-title {
+  font-weight: bold;
+  color: #66b2ff;
+  text-shadow: 0 0 5px rgba(102,178,255,0.6);
+}
 
+.cyber-card:hover .cert-title {
+  color: #0d6efd;
+  text-shadow: 0 0 10px #0d6efd,
+               0 0 20px #0d6efd,
+               0 0 30px #0d6efd;
+}
+.progress {
+  height: 20px;
+  background-color: #333;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+.progress-bar {
+  background-color: #28a745;
+  transition: width 0.5s ease;
+  color: #fff;
+  font-weight: bold;
+}
 
+/* Card cursor fix */
+.cyber-card {
+  cursor: default; /* prevents card from being clickable */
+}
+.cyber-card button {
+  cursor: pointer; /* only button is clickable */
+}
 
-
-
-   
   </style>
 </head>
 <body>
-
 
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -356,16 +382,13 @@
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
           <li class="nav-item"><a class="nav-link" href="#projects">Case Studies & Projects</a></li>
-          <li class="nav-item"><a class="nav-link" href="#about">About Me</a></li>
+          <li class="nav-item"><a class="nav-link" href="#certificates">Certificates</a></li>
           <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-
-
-  
   <!-- Hero Section -->
   <section class="hero">
     <div class="container">
@@ -377,7 +400,7 @@
      Skilled at applying tools, frameworks, and playbooks to identify vulnerabilities and safeguard critical assets. 
      Continuously learning and adapting to strengthen systems and secure sensitive data.
      </p><br><br>
-     <a href="#skills" class="btn btn-light btn-glow mt-3">Explore My Cyber Skills</a>
+     <a href="#skills" class="btn btn-outline-primary btn-glow">Explore My Cyber Skills</a>
     </div>
   </section>
 
@@ -549,16 +572,17 @@
         </div>
       </div>
 
-      <!-- Project Coming Soon -->
+      <!-- Network Security Scenarios -->
       <div class="col">
         <div class="card cyber-card h-100 shadow-sm border-secondary">
-          <img src="assets/project-placeholder.png" class="card-img-top" alt="Project Placeholder">
+          <img src="assets/tcpdump log.png" class="card-img-top" alt="Project Placeholder">
           <div class="card-body d-flex flex-column">
-            <h5 class="card-title text-white">Course Project / Other Case Study</h5>
+            <h5 class="card-title text-white">Network Security Scenarios</h5>
             <p class="card-text text-light flex-grow-1">
-              Description of another project or case study can go here. You can update this once you have more completed coursework or hands-on projects.
+              This page showcases scenario-based exercises from my Connect and Protect: Networks and Network Security course. Here, I created cybersecurity incident reports for various network scenarios, such as DoS attacks, DNS server outages, and more. 
+              These exercises helped me develop practical skills in identifying, analyzing, and documenting security incidents.
             </p>
-            <button class="btn btn-outline-primary mt-auto disabled">Coming Soon</button>
+            <a href="network-scenarios.html" class="btn btn-outline-primary mt-auto">View Case Study</a>
           </div>
         </div>
       </div>
@@ -566,87 +590,46 @@
     </div>
   </div>
 </section>
-
-
-
-<section id="certifications" class="certifications py-5">
-  <div class="container">
-    <h2 class="text-center mb-4">Certifications</h2>
 
     <!-- Certificate Progress -->
-    <div class="mb-5">
-      <h5 class="text-white">Google Cybersecurity Professional Certificate</h5>
-      <div class="progress" style="height: 20px;">
-        <div class="progress-bar bg-success" style="width: 25%;">2 of 8 Courses Completed</div>
-      </div>
-    </div>
+ <section id="certificates">
+    <div class="text-center my-5">
+    <h1 class="page-title">Certifications</h1>
+  </div>
+ </section>
 
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-
-      <!-- Certificate 1 -->
-      <div class="col">
-        <div class="card cyber-card h-100 shadow-sm border-secondary cert-card">
-          <img src="assets/Foundations of Cybersecurity Certifications.jpg" class="card-img-top cert-img" alt="Foundations of Cybersecurity">
-          <div class="card-body d-flex flex-column">
-            <div class="d-flex align-items-center mb-2">
-              <img src="assets/google-logo.png" class="cert-logo" alt="Google Logo">
-              <img src="assets/coursera-logo.png" class="cert-logo ms-2" alt="Coursera Logo">
-            </div>
-            <h5 class="card-title">Foundations of Cybersecurity</h5>
-            <p class="card-text flex-grow-1">
-              Core security principles, risk management, and cybersecurity roles in protecting organizations.
-            </p>
-            <button class="btn btn-outline-primary mt-auto" onclick="openModal('assets/Foundations of Cybersecurity.pdf')">
-              View Certificate
-            </button>
-          </div>
+<!-- Main Google Professional Certificate -->
+<div class="container mb-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card cyber-card text-center p-4" style="cursor: default;">
+        <h3>Google Professional Cybersecurity Certificate</h3>
+        <p>Progress towards completing the full program:</p>
+        <div class="progress mb-3">
+          <div class="progress-bar" role="progressbar" id="mainProgress" style="width:44%;">44%</div>
         </div>
-      </div>
 
-      <!-- Certificate 2 -->
-      <div class="col">
-        <div class="card cyber-card h-100 shadow-sm border-secondary cert-card">
-          <img src="assets/Play It Safe - Manage Security Risks.png" class="card-img-top cert-img" alt="Play It Safe Certificate">
-          <div class="card-body d-flex flex-column">
-            <div class="d-flex align-items-center mb-2">
-              <img src="assets/google-logo.png" class="cert-logo" alt="Google Logo">
-              <img src="assets/coursera-logo.png" class="cert-logo ms-2" alt="Coursera Logo">
-            </div>
-            <h5 class="card-title">Play It Safe: Manage Security Risks</h5>
-            <p class="card-text flex-grow-1">
-              Learned risk management strategies, threat modeling, and security frameworks used to protect organizational assets.
-            </p>
-            <button class="btn btn-outline-primary mt-auto" onclick="openModal('assets/Play It Safe - Manage Security Risks.pdf')">
-              View Certificate
-            </button>
-          </div>
-        </div>
+        <!-- In Progress Button, glowing like case studies -->
+        <button class="btn btn-outline-primary mt-auto" onclick="alert('Certificate still in progress!')">
+          In Progress
+        </button>
       </div>
-
-      <!-- In Progress -->
-      <div class="col">
-        <div class="card cyber-card h-100 shadow-sm border-secondary cert-card">
-          <img src="assets/cert-in-progress.png" class="card-img-top cert-img" alt="In Progress">
-          <div class="card-body d-flex flex-column">
-            <div class="d-flex align-items-center mb-2">
-              <img src="assets/google-logo.png" class="cert-logo" alt="Google Logo">
-              <img src="assets/coursera-logo.png" class="cert-logo ms-2" alt="Coursera Logo">
-            </div>
-            <h5 class="card-title">Certificate in Progress</h5>
-            <p class="card-text flex-grow-1">
-              Continuing training in SIEM tools, threat detection, incident response, and security operations.
-            </p>
-            <span class="badge bg-warning text-dark mt-auto">In Progress</span>
-          </div>
-        </div>
-      </div>
-
     </div>
   </div>
-</section>
+</div>
 
 
 
+
+<div class="text-center mt-4">
+     <p class="page-description">
+      Click "View All Certifications" to displays all the course certificates earned so far from the Google Cybersecurity Professional Certificate program.
+    </p>
+  <a href="certification.html" class="btn btn-primary btn-glow px-4 py-2">
+    View All Certifications
+  </a>
+
+</div>
 
 <!-- About Me Section with Photo -->
 <section id="about" class="py-5">
@@ -661,7 +644,7 @@
       </div>
 
       <!-- Professional Statement -->
-      <div class="col-lg-8 col-md-7">
+      <div class="col-lg-8 col-md-7" style="margin-top: 100px;">
         <h2 class="about-title">About Me</h2>
         <p class="text-justify small" style="text-align: justify; font-size: 12px;">
           I am an aspiring cybersecurity professional with a strong security mindset and a commitment to protecting individuals and organizations from evolving cyber threats. I am highly adaptable and continuously driven to learn new attack techniques, defensive strategies, and technologies in a fast-paced cybersecurity landscape.<br><br>
@@ -673,10 +656,6 @@
     </div>
   </div>
 </section>
-
-
-
-
 
   <!-- Footer -->
   <footer class="footer" id="contact">
@@ -716,7 +695,22 @@ function closeModal() {
 // Close when clicking outside modal
 document.getElementById("certModal").onclick = closeModal;
 
+  // Animate the certification progress bar
+  document.addEventListener("DOMContentLoaded", () => {
+    const progressBar = document.getElementById("mainProgress");
+    let progress = 0;
+    const target = 100; // <-- change this to your completion %, e.g., 80
 
+    const interval = setInterval(() => {
+      if (progress >= target) {
+        clearInterval(interval);
+      } else {
+        progress++;
+        progressBar.style.width = progress + "%";
+        progressBar.innerText = progress + "%";
+      }
+    }, 15); // speed of animation
+  });
 </script>
 
 <!-- Modal Viewer -->
@@ -726,9 +720,6 @@ document.getElementById("certModal").onclick = closeModal;
     <button class="close-btn" onclick="closeModal()">Close</button>
   </div>
 </div>
-
-
-
 
 </body>
 </html>
