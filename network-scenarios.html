@@ -93,15 +93,22 @@
     }
 
     /* Navbar brand glow */
-    .navbar-glow .navbar-brand {
-      transition: color 0.3s ease, text-shadow 0.3s ease;
-      z-index: 2;
-    }
+ .navbar {
+  position: fixed;
+  width: 100%;
+  z-index: 1030;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
 
-    .navbar-glow .navbar-brand:hover {
-      color: #0d6efd;
-      text-shadow: 0 0 10px #0d6efd, 0 0 20px #0d6efd, 0 0 30px #0d6efd;
-    }
+.navbar.glow {
+  box-shadow: 0 0 25px rgba(13,110,253,0.6),
+              0 0 50px rgba(13,110,253,0.3);
+}
+.navbar:hover {
+  box-shadow: 0 0 35px rgba(13,110,253,0.7),
+              0 0 70px rgba(13,110,253,0.4);
+  transform: translateY(-2px);
+}
 
     /* Image container for glow + hover lift */
     .img-container {
@@ -259,6 +266,32 @@
   color: #0d6efd;
   text-shadow: 0 0 10px #0d6efd, 0 0 20px #0d6efd, 0 0 30px #0d6efd;
 }
+.section-divider {
+  border: none;
+  height: 2px;
+  width: 60%;
+  margin: 60px auto;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #0d6efd,
+    #66b2ff,
+    #0d6efd,
+    transparent
+  );
+  background-size: 200% 100%;
+  animation: scanLine 3s linear infinite;
+  box-shadow: 0 0 10px #0d6efd;
+}
+
+@keyframes scanLine {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
 
 
 
@@ -274,9 +307,12 @@
   </div>
 </nav>
 
-<div class="container py-5">
+<div class="container" style="padding-top: 100px;">
   <h1 class="mb-4">Network Security Scenarios - Incident Reporting</h1>
 
+
+
+  
   <!-- Overview -->
   <h4 class="section-title">Overview</h4>
   <p>This page showcases hands-on scenario-based activities from the Connect and Protect: Networks and Network Security course. Each scenario represents a simulated network security incident, such as a Denial-of-Service (DoS) attack, DNS server outage, and other potential threats.
@@ -308,6 +344,7 @@
     <li>Assessed impact on organizational assets</li>
     <li>Documented findings and recommendations</li>
   </ul><br><br>
+<hr class="section-divider">
 
 <!-- Page Title and Description -->
 <div class="text-center my-5">
@@ -357,7 +394,7 @@
   </div>
 </div>
 
-
+<hr class="section-divider">
 
   <!-- PDFs -->
   <h4 class="section-title">Network Security Incident Report Documentation</h4>

@@ -366,6 +366,32 @@
 .cyber-card button {
   cursor: pointer; /* only button is clickable */
 }
+.section-divider {
+  border: none;
+  height: 2px;
+  width: 60%;
+  margin: 60px auto;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #0d6efd,
+    #66b2ff,
+    #0d6efd,
+    transparent
+  );
+  background-size: 200% 100%;
+  animation: scanLine 3s linear infinite;
+  box-shadow: 0 0 10px #0d6efd;
+}
+
+@keyframes scanLine {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
 
   </style>
 </head>
@@ -550,10 +576,10 @@
     </div>
   </div>
 </section>
+<hr class="section-divider">
 
 
-
-<section id="projects" class="projects py-5">
+<section id="projects" class="projects py-1">
   <div class="container">
     <h2 class="text-center mb-5">Case Studies & Projects</h2>
     <div class="row row-cols-1 row-cols-md-2 g-4">
@@ -590,10 +616,11 @@
     </div>
   </div>
 </section>
+<hr class="section-divider">
 
     <!-- Certificate Progress -->
  <section id="certificates">
-    <div class="text-center my-5">
+    <div class="text-center my-1">
     <h1 class="page-title">Certifications</h1>
   </div>
  </section>
@@ -628,23 +655,24 @@
   <a href="certification.html" class="btn btn-primary btn-glow px-4 py-2">
     View All Certifications
   </a>
-
 </div>
+<hr class="section-divider">
+
 
 <!-- About Me Section with Photo -->
-<section id="about" class="py-5">
+<section id="about" class="py-5 mt-5">
   <div class="container">
     <div class="row align-items-center">
 
       <!-- Profile Image -->
-      <div class="col-lg-4 col-md-5 text-center mb-4 mb-md-0">
+      <div class="col-lg-4 col-md-5 text-center mb-4 mb-md-0 mt-5">
         <img src="assets/profile.jpg"
              alt="Dave Espinoza"
              class="img-fluid rounded-circle shadow about-img">
       </div>
 
       <!-- Professional Statement -->
-      <div class="col-lg-8 col-md-7" style="margin-top: 100px;">
+      <div class="col-lg-8 col-md-7">
         <h2 class="about-title">About Me</h2>
         <p class="text-justify small" style="text-align: justify; font-size: 12px;">
           I am an aspiring cybersecurity professional with a strong security mindset and a commitment to protecting individuals and organizations from evolving cyber threats. I am highly adaptable and continuously driven to learn new attack techniques, defensive strategies, and technologies in a fast-paced cybersecurity landscape.<br><br>

@@ -92,13 +92,6 @@
       z-index: 2;
     }
 
-  .navbar {
-  position: fixed;
-  width: 100%;
-  z-index: 1030;
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-}
-
 /* Glowing Navbar Effect */
 .navbar {
   position: fixed;
@@ -248,6 +241,32 @@
                   0 0 30px rgba(13,110,253,0.4);
       transform: translateY(-2px);
     }
+    .section-divider {
+  border: none;
+  height: 2px;
+  width: 60%;
+  margin: 60px auto;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #0d6efd,
+    #66b2ff,
+    #0d6efd,
+    transparent
+  );
+  background-size: 200% 100%;
+  animation: scanLine 3s linear infinite;
+  box-shadow: 0 0 10px #0d6efd;
+}
+
+@keyframes scanLine {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
 
 
   </style>
@@ -310,6 +329,7 @@
     </p>
     <p>My task is to review the IT manager’s scope, goals, and risk assessment report. Then, perform an internal audit by completing a controls and compliance checklist.</p>
   </div>
+  <hr class="section-divider">
 
   <!-- Evidence Screenshots -->
   <h4 class="section-title">Botium Toys Scope, Goals, and Risk Assessment Report</h4>
@@ -320,6 +340,7 @@
       </div>
     </div>
   </div>
+  <hr class="section-divider">
 
   <h4 class="section-title">Controls and Compliance Checklist</h4>
   <div class="row g-4">
@@ -339,6 +360,7 @@
       </div>
     </div>
   </div>
+  <hr class="section-divider">
 
   <!-- PDFs -->
   <h4 class="section-title">Full Audit Documentation</h4>
