@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Network Layer Communication | Dave Espinoza</title>
+  <title>Internal Security Audit | Dave Espinoza</title>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -303,103 +303,123 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container">
-    <a class="navbar-brand" href="network-scenarios.html">🔙 Back to Network Security</a>
+    <a class="navbar-brand" href="index.html">🔙 Dave Portfolio</a>
   </div>
 </nav>
 
 <div class="container" style="padding-top: 20px;">
 
-  <h1 class="mb-4">Network Layer Communication Analysis</h1>
-  <p>This activity analyzes DNS and ICMP traffic using network protocol data captured from a network analyzer tool. 
-    The objective was to identify which protocols were involved in a simulated cybersecurity incident and evaluate whether any suspicious traffic patterns were present.</p>
-
+  <h1 class="mb-4">Internal Security Audit – Sample Assessment</h1>
+ 
   <!-- Overview -->
   <h4 class="section-title">Overview</h4>
-  <p>
-In this activity, you will analyze DNS and ICMP traffic in transit using data from a network protocol analyzer tool. You will identify which network protocol and service were impacted by the cybersecurity incident. 
-In the Internet layer of the TCP/IP model, IP formats data packets into IP datagrams, which provide security analysts with insight into potentially suspicious traffic. 
-</p>
-<p>
-Knowing how to identify potentially malicious traffic on a network helps cybersecurity analysts assess security risks and reinforce network security. 
-After analyzing the data, you will report your findings so that security engineers can take appropriate action.
-</p>
+  <p>This security audit was conducted as part of the Google Cybersecurity Professional Certificate program.
+     The assessment focuses on evaluating organizational security controls, risk exposure, and alignment with security best practices.
 
   <!-- Scope -->
  <h4 class="section-title">Scope</h4>
 <ul>
-<li>Analyze packet data captured from a network protocol analyzer.</li>
-<li>Identify which network protocols were involved in the incident.</li>
-<li>Review DNS and ICMP traffic for irregular patterns.</li>
-<li>Determine whether the activity indicated a potential network issue or security concern.</li>
-<li>Document findings and prepare a follow-up report.</li>
+<li>Review of security controls and policies</li>
+<li>Risk assessment based on the CIA Triad</li>
+<li>Identification of control gaps</li>
+<li>Internal audit methodology</li>
 </ul>
 
-  <!-- Key Skills -->
-  <h4 class="section-title">Key Skills Demonstrated</h4>
+  <!-- Frameworks & Concepts Applied -->
+  <h4 class="section-title">Frameworks & Concepts Applied</h4>
   <ul>
-   <li>Network traffic analysis</li>
-    <li>Understanding the Internet layer of the TCP/IP model</li>
-    <li>Protocol identification (DNS and ICMP)</li>
-    <li>Packet inspection using tcpdump logs</li>
-    <li>Incident assessment and documentation</li>
+    <li>NIST Cybersecurity Framework (CSF)</li>
+    <li>NIST SP 800-53 (Security Controls)</li>
+    <li>CIA Triad (Confidentiality, Integrity, Availability)</li>
+    <li>OWASP Secure Design Principles</li>
   </ul>
 
-  <hr class="section-divider">
+    <!-- Key Activities -->
+  <h4 class="section-title">Key Activities</h4>
+  <ul>
+    <li>Evaluated existing security controls</li>
+    <li>Identified risks and control deficiencies</li>
+    <li>Assessed impact on organizational assets</li>
+    <li>Documented findings and recommendations</li>
+  </ul>
 
 <!-- Scenario -->
   <h4 class="section-title">Scenario</h4>
   <div class="card p-4 cyber-card">
     <p>
       <strong>This scenario is based on a fictional company:</strong><br><br>
-      You are a cybersecurity analyst working at a company that specializes in providing IT services for clients. Several customers of clients reported that they were not able to access the client company website www.yummyrecipesforme.com, and saw the error “destination port unreachable” after waiting for the page to load.</p>
-
-    <p>You are tasked with analyzing the situation and determining which network protocol was affected during this incident. To start, you attempt to visit the website and you also receive the error “destination port unreachable.” 
-        To troubleshoot the issue, you load your network analyzer tool, tcpdump, and attempt to load the webpage again. To load the webpage, your browser sends a query to a DNS server via the UDP protocol to retrieve the IP address for the website's domain name; this is part of the DNS protocol. 
-        Your browser then uses this IP address as the destination IP for sending an HTTPS request to the web server to display the webpage  The analyzer shows that when you send UDP packets to the DNS server, you receive ICMP packets containing the error message: “udp port 53 unreachable.” 
+      Botium Toys is a small U.S. business that develops and sells toys. The business has a single physical location, which serves as their main office, a storefront, and warehouse for their products. 
+      However, Botium Toy’s online presence has grown, attracting customers in the U.S. and abroad. As a result, their IT department is under increasing pressure to support their online market worldwide.
+    </p>
+    <p>
+      The manager of the IT department has decided that an internal IT audit needs to be conducted. She's worried about maintaining compliance and business operations as the company grows without a clear plan. 
+      She believes an internal audit can help better secure the company’s infrastructure and help them identify and mitigate potential risks, threats, or vulnerabilities to critical assets. The manager is also interested in ensuring that they comply with regulations related to internally processing and accepting online payments and conducting business in the European Union (E.U.).
+    </p>
+    <p>
+      The IT manager starts by implementing the NIST CSF, establishing an audit scope and goals, listing assets currently managed by the IT department, and completing a risk assessment. 
+      The goal of the audit is to provide an overview of the risks and/or fines that the company might experience due to the current state of their security posture.
+    </p>
+    <p>My task is to review the IT manager’s scope, goals, and risk assessment report. Then, perform an internal audit by completing a controls and compliance checklist.</p>
   </div>
 
   <hr class="section-divider">
 
-  <h4 class="section-title">tcpdump log</h4>
+  <h4 class="section-title">Botium Toys Scope, Goals, and Risk Assessment Report</h4>
    <div class="row g-4">
   <div class="col-md-10">
     <div class="img-container cyber-card">
-      <img src="assets/tcpdump log.png"
+      <img src="assets/Botium-Toys Scope-Goals-and-Risk-Assessment-Report.png"
            class="img-fluid"
            onclick="openImageModal(this.src)"
-           alt="tcpdump Evidence">
+           alt="Scope, Goals, and Risk Assessment Report">
     </div>
   </div>
 </div>
 
 
-    <h4 class="section-title">Cybersecurity Incident Report Network Traffic Analysis</h4>
+    <h4 class="section-title">Controls and Compliance Checklist</h4>
    <div class="row g-4">
   <div class="col-md-10">
     <div class="img-container cyber-card">
-      <img src="assets/Cybersecurity Incident Report Network Traffic Analysis.png"
+      <img src="assets/Controls-and-compliance-checklist1.png"
            class="img-fluid rounded"
            onclick="openImageModal(this.src)"
-           alt="Incident Report">
+           alt="Checklist1">
     </div>
+    <p class="mt-2 text-center"><i>Page 1 and 2 – Controls and compliance checklist</p></i>
+  </div>
+
+    <div class="col-md-10">
+        <div class="img-container cyber-card">
+        <img src="assets/Controls-and-compliance-checklist2.png"
+            class="img-fluid rounded"
+            onclick="openImageModal(this.src)"
+            alt="Checklist2">
+        </div>
+         <p class="mt-2 text-center"><i>Page 3 and 4 – Controls and compliance checklist</p></i>
+    </div>
+
+    <div class="col-md-6">
+    <div class="img-container cyber-card">
+      <img src="assets/Controls-and-compliance-checklist3.png"
+           class="img-fluid rounded"
+           onclick="openImageModal(this.src)"
+           alt="Checklist3">
+    </div>
+        <p class="mt-2 text-center"><i>Page 5 – Controls and compliance checklist</p></i>
   </div>
 </div>
 
-<!-- Activity / Findings -->
-  <h4 class="section-title">Activity Summary & Findings</h4>
-  <p>After reviewing the tcpdump logs, DNS queries and ICMP packets were identified within the captured network traffic. The analysis involved examining packet structure, identifying the protocols in use, and evaluating whether any traffic patterns indicated suspicious activity.
-</p>
-
-<p>
-This exercise demonstrated how cybersecurity analysts can inspect network traffic to better understand communication between systems and detect unusual behavior. By analyzing packet data and documenting findings, analysts provide valuable information that allows security engineers to investigate and resolve potential network issues.</p>
 
   <hr class="section-divider">
 
   <!-- PDF Resources -->
-  <h4 class="section-title">Resources</h4>
+  <h4 class="section-title">Full Audit Documentation</h4>
   <div class="card p-4">
-    <a href="assets/Cybersecurity Incident Report Network Traffic Analysis.pdf" target="_blank" class="pdf-link">Cybersecurity Incident Report Network Traffic Analysis (PDF)</a>
-    <a href="assets/tcpdump log.png" target="_blank" class="pdf-link">tcpdump log (PNG)</a>
+     <p>👉 Internal Security Audit – Sample (PDF)</p>
+    <a href="assets/Botium Toys Scope goals and risk assessment report.pdf" target="_blank" class="pdf-link">Botium Toys Scope goals and risk assessment report</a>
+    <a href="assets/Control Categories.pdf" target="_blank" class="pdf-link">Control Categories</a>
+    <a href="assets/Controls and compliance checklist.pdf" target="_blank" class="pdf-link">Controls and compliance checklist</a>
   </div>
 
 </div>
