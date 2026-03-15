@@ -111,11 +111,12 @@
 }
 
     /* Image container for glow + hover lift */
-    .img-container {
-      border-radius: 8px;
-      cursor: pointer;
-      display: inline-block;
-    }
+.img-container {
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+}
+
     h1.mb-4 {
   margin-top: 50px; /* space from header */
 }
@@ -138,32 +139,51 @@
     }
 
     /* Top button: always lower-right */
-    #topBtn {
-      position: fixed;
-      bottom: 25px;
-      right: 25px;      /* Lower-right */
-      z-index: 999;
-      width: 55px;
-      height: 55px;
-      border: none;
-      outline: none;
-      background-color: #0d6efd;
-      color: white;
-      cursor: pointer;
-      border-radius: 50%;
-      font-size: 20px;
-      display: none;   /* hidden until scroll */
-      box-shadow: 0 0 15px rgba(13,110,253,0.6),
-                  0 0 30px rgba(13,110,253,0.3),
-                  0 0 45px rgba(13,110,253,0.2);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
+#topBtn {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 55px;
+  height: 55px;
+  border: none;
+  outline: none;
+  background-color: #0d6efd;
+  color: white;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px;
+  z-index: 999;
+  display: none; /* hidden until scroll */
+  align-items: center;
+  justify-content: center;
 
-    #topBtn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 0 25px rgba(13,110,253,0.6),
-                  0 0 50px rgba(13,110,253,0.3);
-    }
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#topBtn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px #0d6efd,
+              0 0 20px #0d6efd,
+              0 0 30px #0d6efd,
+              0 0 40px #0d6efd;
+  animation: pulseGlow 1.5s infinite alternate;
+}
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 10px #0d6efd,
+                0 0 20px #0d6efd,
+                0 0 30px #0d6efd,
+                0 0 40px #0d6efd;
+  }
+  100% {
+    box-shadow: 0 0 20px #0d6efd,
+                0 0 40px #0d6efd,
+                0 0 60px #0d6efd,
+                0 0 80px #0d6efd;
+  }
+}
+
 
     /* Modal content */
     #imageModal .modal-content {
@@ -193,28 +213,6 @@
     #imageModal img:hover {
       box-shadow: 0 0 40px rgba(13,110,253,0.7),
                   0 0 70px rgba(13,110,253,0.4);
-    }
-
-    /* Close button fixed inside modal, always top-right of viewport */
-    #imageModal .btn-danger {
-      position: absolute;      /* changed from absolute */
-      top: 10px;            /* distance from top of viewport */
-      left: 1200px;          /* distance from right of viewport */
-      z-index: 1050;        /* above everything */
-      padding: 8px 12px;
-      font-size: 18px;
-      border-radius: 50%;
-      cursor: pointer;
-      background-color: #ff4d4d;
-      color: #fff;
-      border: none;
-      box-shadow: 0 0 10px #ff4d4d, 0 0 20px #ff4d4d;
-      transition: box-shadow 0.3s ease, transform 0.2s ease;
-    }
-
-    #imageModal .btn-danger:hover {
-      box-shadow: 0 0 15px #ff4d4d, 0 0 30px #ff4d4d;
-      transform: scale(1.1);
     }
 
     #imageModal .modal-content {
@@ -267,6 +265,72 @@
     background-position: 200% 0;
   }
 }
+/* Evidence Modal Background */
+.evidence-modal {
+  background-color: #0b0b0b;
+  border: 1px solid #0d6efd;
+  box-shadow:
+    0 0 20px rgba(13,110,253,0.6),
+    0 0 40px rgba(13,110,253,0.3);
+}
+
+/* Evidence Header */
+.evidence-header {
+  padding: 10px 15px;
+  border-bottom: 1px solid #0d6efd;
+  font-weight: bold;
+  color: #66b2ff;
+  letter-spacing: 1px;
+  text-align: left;
+}
+
+/* Image container */
+.evidence-container {
+  padding: 15px;
+  text-align: center;
+}
+
+/* Evidence image */
+.evidence-image {
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: 6px;
+  transition: transform 0.3s ease;
+}
+
+/* Zoom effect */
+.evidence-image:hover {
+  transform: scale(1.05);
+}
+
+/* Close button */
+.btn-close-custom {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  z-index: 10;
+  background: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.btn-close-custom:hover {
+  box-shadow:
+    0 0 10px rgba(220,53,69,0.7),
+    0 0 20px rgba(220,53,69,0.4);
+}
+.img-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 6px;
+}
+
 
 
   </style>
@@ -385,15 +449,25 @@
 <!-- Top button -->
 <button onclick="scrollToTop()" id="topBtn" class="btn-glow" title="Back to top">⬆</button>
 
-<!-- Zoom Modal -->
-<div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-lg">
-    <div class="modal-content p-0">
-      <img id="modalImage" src="" alt="Full-screen view" class="img-fluid rounded">
-      <button type="button" class="btn btn-danger" data-bs-dismiss="modal">✕</button>
+<!-- Evidence Image Modal -->
+<div class="modal fade" id="imageModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-content evidence-modal">
+
+      <button type="button" class="btn-close-custom" onclick="closeImageModal()">✕</button>
+
+      <div class="evidence-header">
+        🔍 Evidence Viewer
+      </div>
+
+      <div class="evidence-container">
+        <img id="modalImage" src="" class="img-fluid evidence-image">
+      </div>
+
     </div>
   </div>
 </div>
+
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
