@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Threat Modeling with PASTA for Secure Application Design | Dave Espinoza</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+  <style>
+    body {
+      background-color: #121212;
+      color: #f5f5f5;
+      font-family: Arial, sans-serif;
+    }
+    a { color: #66b2ff; }
+    a:hover { color: #99ccff; }
+
+    .section-title {
+      border-left: 4px solid #0d6efd;
+      padding-left: 10px;
+      margin-top: 40px;
+      margin-bottom: 20px;
+    }
+
+    .card {
+      background-color: #1e1e1e;
+      border: 1px solid #333;
+      color: #f5f5f5;
+    }
+
+    .pdf-link {
+      display: block;
+      margin: 8px 0;
+      padding: 6px 12px;
+      background-color: #1e1e1e;
+      border: 1px solid #333;
+      border-radius: 6px;
+      text-decoration: none;
+      color: #66b2ff;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .pdf-link:hover { color: #fff; background-color: #0d6efd; }
+
+    .btn-cyber {
+      background: transparent;
+      border: 2px solid #0d6efd;
+      color: #0d6efd;
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-decoration: none;
+      transition: 0.3s ease;
+      display: inline-block;
+    }
+    .btn-cyber:hover {
+      background: #0d6efd;
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 0 15px rgba(13,110,253,0.6);
+    }
+
+    .footer {
+      background: #1f1f1f;
+      color: #f5f5f5;
+      padding: 20px 0;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+ #topBtn {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 55px;
+  height: 55px;
+  border: none;
+  outline: none;
+  background-color: #0d6efd;
+  color: white;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px;
+  z-index: 999;
+  display: none; /* hidden until scroll */
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#topBtn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px #0d6efd,
+              0 0 20px #0d6efd,
+              0 0 30px #0d6efd,
+              0 0 40px #0d6efd;
+  animation: pulseGlow 1.5s infinite alternate;
+}
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 10px #0d6efd,
+                0 0 20px #0d6efd,
+                0 0 30px #0d6efd,
+                0 0 40px #0d6efd;
+  }
+  100% {
+    box-shadow: 0 0 20px #0d6efd,
+                0 0 40px #0d6efd,
+                0 0 60px #0d6efd,
+                0 0 80px #0d6efd;
+  }
+}
+   .section-divider {
+  border: none;
+  height: 2px;
+  width: 60%;
+  margin: 60px auto;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #0d6efd,
+    #66b2ff,
+    #0d6efd,
+    transparent
+  );
+  background-size: 200% 100%;
+  animation: scanLine 3s linear infinite;
+  box-shadow: 0 0 10px #0d6efd;
+}
+
+@keyframes scanLine {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+/* Cyber Glow Card Effect */
+.cyber-card {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cyber-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 8px;
+  pointer-events: none;
+  opacity: 0;
+  box-shadow:
+    0 0 15px rgba(13,110,253,0.6),
+    0 0 30px rgba(13,110,253,0.3),
+    0 0 45px rgba(13,110,253,0.2);
+  transition: opacity 0.3s ease;
+}
+
+.cyber-card:hover::before {
+  opacity: 1;
+}
+
+.cyber-card:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 0 25px rgba(13,110,253,0.5),
+    0 0 50px rgba(13,110,253,0.3);
+}
+
+/* Image hover glow */
+.img-container img {
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.img-container img:hover {
+  transform: scale(1.02);
+  box-shadow:
+    0 0 20px #0d6efd,
+    0 0 40px #0d6efd,
+    0 0 60px #0d6efd;
+}
+/* Modal close button */
+.btn-close-custom {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background-color: #dc3545;
+  border: none;
+  color: white;
+  font-size: 20px;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  z-index: 1050;
+}
+
+.btn-close-custom:hover {
+  box-shadow:
+    0 0 10px rgba(220,53,69,0.7),
+    0 0 20px rgba(220,53,69,0.4);
+}
+/* Evidence Modal Background */
+.evidence-modal {
+  background-color: #0b0b0b;
+  border: 1px solid #0d6efd;
+  box-shadow:
+    0 0 20px rgba(13,110,253,0.6),
+    0 0 40px rgba(13,110,253,0.3);
+}
+
+/* Evidence Header */
+.evidence-header {
+  padding: 10px 15px;
+  border-bottom: 1px solid #0d6efd;
+  font-weight: bold;
+  color: #66b2ff;
+  letter-spacing: 1px;
+}
+
+/* Image container */
+.evidence-container {
+  padding: 15px;
+  text-align: center;
+}
+
+/* Evidence image */
+.evidence-image {
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: 6px;
+  transition: transform 0.3s ease;
+}
+
+/* Zoom effect */
+.evidence-image:hover {
+  transform: scale(1.05);
+}
+
+/* Close button */
+.btn-close-custom {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  z-index: 10;
+  background: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.btn-close-custom:hover {
+  box-shadow:
+    0 0 10px rgba(220,53,69,0.7),
+    0 0 20px rgba(220,53,69,0.4);
+}
+/* Make image glow hug the image exactly */
+.img-container.cyber-card {
+  position: relative;
+  display: inline-block; /* shrink to image size */
+  overflow: hidden;
+  border-radius: 0; /* match image edge */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.img-container.cyber-card::before {
+  content: "";
+  position: absolute;
+  inset: 0; /* cover full container */
+  pointer-events: none;
+  opacity: 0;
+  box-shadow:
+    0 0 20px rgba(13,110,253,0.6),
+    0 0 40px rgba(13,110,253,0.3),
+    0 0 60px rgba(13,110,253,0.2);
+  transition: opacity 0.3s ease;
+}
+
+.img-container.cyber-card:hover::before {
+  opacity: 1;
+}
+
+.img-container.cyber-card img:hover {
+  transform: scale(1.02);
+}
+/* Navbar link glow on hover */
+.navbar .nav-link {
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.navbar .nav-link:hover {
+  color: #0d6efd; /* glowing color */
+  text-shadow: 0 0 5px #0d6efd,
+               0 0 10px #0d6efd,
+               0 0 15px #0d6efd;
+}
+
+/* Navbar background glow effect */
+.navbar:hover {
+  box-shadow: 0 0 15px rgba(13, 110, 253, 0.6),
+              0 0 30px rgba(13, 110, 253, 0.3);
+  transition: box-shadow 0.3s ease;
+}
+
+/* Smooth transition back when not hovered */
+.navbar {
+  transition: box-shadow 0.3s ease;
+}
+
+.stage-title {
+  color: #00bfff;
+  margin-top: 1.5rem;
+  font-weight: 600;
+}
+
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container d-flex justify-content-between">
+    <a class="navbar-brand" href="index.html#projects">
+      <i class="bi bi-arrow-left"></i> 🏠 Dave Portfolio
+    </a>
+
+    <a class="navbar-brand" href="case-studies.html">
+      View Case Studies & Projects 👀 <i class="bi bi-arrow-right"></i>
+    </a>
+  </div>
+</nav>
+
+<div class="container" style="padding-top: 20px;">
+
+  <h1 class="mb-4">Threat Modeling with PASTA for Secure Application Design</h1>
+ 
+  <!-- Overview -->
+  <h4 class="section-title">Overview:</h4>
+  <p>This project applies the PASTA (Process of Attack Simulation and Threat Analysis) framework to 
+    evaluate the security risks of a new shopping application. The analysis focuses on identifying 
+    potential threats, vulnerabilities, and attack paths before the application is launched.</p>
+
+  <!-- Scope -->
+ <h4 class="section-title">Scope:</h4>
+<p>This case study focuses on a fictional sneaker marketplace application designed to connect buyers 
+    and sellers. The scope includes key system components such as user authentication, API communication, 
+    payment processing, data storage, and encryption mechanisms. The analysis is centered on identifying 
+    security risks across these technologies and user interactions.</p>
+
+  <!-- Methodology -->
+  <h4 class="section-title">Methodology:</h4>
+  <p>This project follows the PASTA threat modeling framework, a structured approach used to identify and 
+    analyze security risks in applications before deployment. The methodology is divided into seven stages, 
+    starting with understanding business objectives and system functionality, followed by identifying the 
+    technical scope and data flows. It then focuses on threat identification, vulnerability analysis, and 
+    attack modeling using supporting diagrams. Finally, the process concludes with recommending security 
+    controls to mitigate identified risks and reduce the likelihood of security incidents.</p>
+
+<!-- Scenario -->
+  <h4 class="section-title">Scenario:</h4>
+  <div class="card p-4 cyber-card">
+    <p>
+      <strong>This scenario is based on a fictional company:</strong><br><br>
+      You’re part of the growing security team at a company for sneaker enthusiasts and collectors. 
+      The business is preparing to launch a mobile app that makes it easy for their customers to buy 
+      and sell shoes.</p>
+
+    <p>
+      You are performing a threat model of the application using the PASTA framework. You will go through 
+      each of the seven stages of the framework to identify security requirements for the new sneaker 
+      company app.</p>
+
+  </div>
+
+  <hr class="section-divider">
+
+
+    <!-- Analysis / Findings -->
+  <h4 class="section-title">Analysis / Findings:</h4>
+  <h5 class="stage-title">
+  <span class="text-primary">Stage I:</span> Define Business and Security Objectives
+  </h5>
+  <ul>
+    <li>
+        Enable a secure and seamless platform for users to buy and sell sneakers, including account 
+        registration, authentication, and transaction processing. 
+    </li>
+    <li>
+        Protect sensitive user data, including personal information and payment details, to maintain 
+        trust and comply with legal and regulatory requirements.
+    </li>
+    <li>
+        Ensure a reliable and user-friendly experience that supports communication between buyers 
+        and sellers while maintaining system integrity and availability 
+    </li>
+  </ul><br>
+
+
+  <h5 class="stage-title">
+  <span class="text-primary">Stage II:</span> Define the Technical Scope
+  </h5>
+  List of technologies used by the application:
+  <ul>
+    <li>API</li>
+    <li>PKI</li>
+    <li>AES</li>
+    <li>SHA-256</li>
+    <li>SQL</li>
+  </ul>
+    <p>APIs and SQL databases are prioritized because they handle data
+    exchange and storage, making them primary targets for attacks
+    such as injection and unauthorized access. Securing these
+    components is critical to protecting sensitive user and transaction
+    data, while encryption and hashing mechanisms support overall
+    data protection.</p><br>
+
+  <h5 class="stage-title">
+  <span class="text-primary">Stage III:</span> Decompose Application
+  </h5>    
+<p>
+  The data flow diagram illustrates how customers interact with the sneaker
+  marketplace application through two primary processes: searching for sneakers
+  and managing user accounts. The “Search Sneakers” process accesses data from
+  the sneaker inventory database, while the “Manage Account” process reads and
+  updates information stored in the user profiles database.
+</p>
+
+<p>
+  Analyzing the data flow helped identify areas where sensitive information
+  could be exposed during processing and storage. Particular attention was
+  given to protecting user account data, securing database interactions, and
+  ensuring that data exchanged between users and the application is handled
+  safely.
+</p>
+
+   <div class="row g-4">
+  <div class="col-md-10 mx-auto">
+    <div class="img-container cyber-card">
+      <img src="assets/Assets, Threats, and Vulnerabilities/Data flow diagram.png"
+           class="img-fluid"
+           onclick="openImageModal(this.src)"
+           alt="Data Flow Diagram">
+    </div>
+  </div>
+</div>
+<p class="mt-2 text-center"><i>Figure 1: Data flow diagram showing customer interactions, application 
+    processes, and database communication within the sneaker marketplace application.</p></i><br>
+
+  <h5 class="stage-title">
+  <span class="text-primary">Stage IV:</span> Threat Analysis
+  </h5>  
+<p><i><strong>SQL Injection Vulnerability:</i></strong>
+The application may be vulnerable to SQL injection attacks if user inputs, such as search queries or 
+login fields, are not properly validated or parameterized. Attackers could manipulate database 
+queries to access, modify, or delete sensitive information stored in the system.
+</p>
+<p><i><strong>Broken Authentication & Authorization in API:</i></strong>
+Weak authentication mechanisms or improper authorization controls within APIs could allow 
+attackers to gain unauthorized access to user accounts, view sensitive data, or perform unauthorized 
+actions such as modifying listings and transactions.
+</p><br>
+
+  <h5 class="stage-title">
+  <span class="text-primary">Stage V:</span> Vulnerability Analysis
+  </h5>  
+<p><i><strong>Improper Input Validation in Database Queries:</i></strong>
+The application may fail to properly validate or sanitize user inputs before processing SQL queries. 
+The use of dynamic queries instead of parameterized statements increases the risk of SQL injection 
+vulnerabilities.
+</p>
+<p><i><strong>Weak Authentication and Authorization Controls in API:</i></strong>
+The API may lack strong authentication protocols and proper access control validation, potentially 
+allowing unauthorized users to access or manipulate protected resources and user data.
+</p><br>
+
+  <h5 class="stage-title">
+  <span class="text-primary">Stage VI:</span> Attack Modeling
+  </h5> 
+  <p>  The attack tree outlines several ways a threat actor could compromise the
+  sneaker marketplace application. The analysis focused on SQL injection,
+  unauthorized account access through weak API controls, and service disruption
+  caused by abuse of application resources.</p>
+
+   <div class="row g-4">
+  <div class="col-md-10 mx-auto">
+    <div class="img-container cyber-card">
+      <img src="assets/Assets, Threats, and Vulnerabilities/Attack Tree.png"
+           class="img-fluid"
+           onclick="openImageModal(this.src)"
+           alt="Attack Tree">
+    </div>
+  </div>
+</div>
+<p class="mt-2 text-center"><i>Figure 2: Attack tree diagram illustrating potential attack paths that 
+    could be used to compromise the sneaker marketplace application, including SQL injection, unauthorized 
+    account access, and service disruption.</p></i><br>
+
+  <h5 class="stage-title">
+  <span class="text-primary">Stage VII:</span> Risk Analysis and Security Controls
+  </h5> 
+<p><i><strong>Use Parameterized Queries:</i></strong>
+Implement parameterized queries to prevent SQL injection
+attacks by ensuring user input is treated strictly as data, reducing
+the risk of unauthorized database access. 
+</p>
+<p><i><strong>Enforce Least Privilege Access:</i></strong>
+Limit database and system permissions to only what is necessary,
+reducing the impact of a potential compromise and preventing
+unauthorized data access or modification. 
+</p>
+<p><i><strong>Strong Authentication and Authorization:</i></strong>
+Implement secure authentication mechanisms and enforce
+proper access controls to ensure only authorized users can
+access system resources and perform sensitive actions. 
+</p>
+<p><i><strong>Multi-Factor Authentication (MFA) and Strong Password Policies:</i></strong>
+Require strong passwords and MFA to reduce the likelihood of
+unauthorized access due to compromised credentials or bruteforce attacks.
+</p>
+
+  <hr class="section-divider">
+
+  <!-- Key Takeaways -->
+  <h4 class="section-title">Key Takeaways</h4>
+<p>
+  This project demonstrated how the PASTA threat modeling framework can be
+  used to identify security risks, analyze vulnerabilities, and recommend
+  mitigation strategies before an application is deployed. By evaluating
+  potential attack paths and implementing security controls, the overall
+  security posture of the sneaker marketplace application can be significantly
+  improved.
+</p><br>
+
+  <!-- PDF Resources -->
+  <h4 class="section-title">Supporting Artifacts</h4>
+  <div class="card p-4">
+    <p>👉 Full Report in PDF and Screenshots</p>
+    <a href="assets/Assets, Threats, and Vulnerabilities/PASTA worksheet.pdf" target="_blank" class="pdf-link">Full Case Study Report (PDF)</a>
+    <a href="assets/Assets, Threats, and Vulnerabilities/PASTA worksheet.docx" target="_blank" class="pdf-link">PASTA worksheet (Docs)</a>
+    <a href="assets/Assets, Threats, and Vulnerabilities/Data flow diagram.png" target="_blank" class="pdf-link">Data Flow Diagram (image)</a>
+    <a href="assets/Assets, Threats, and Vulnerabilities/Attack Tree.png" target="_blank" class="pdf-link">Attack Tree (image)</a>
+  </div>
+
+</div>
+
+<!-- Top button with glow -->
+<button onclick="scrollToTop()" id="topBtn" class="btn-glow" title="Back to top">⬆</button>
+
+<!-- Evidence Image Modal -->
+<div class="modal fade" id="imageModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-content evidence-modal">
+
+      <button type="button" class="btn-close-custom" onclick="closeImageModal()">✕</button>
+
+      <div class="evidence-header">
+        🔍 Evidence Viewer
+      </div>
+
+      <div class="evidence-container">
+        <img id="modalImage" src="" class="img-fluid evidence-image">
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container text-center">
+    <a href="index.html#projects" class="btn-cyber">🏠 Dave Portfolio</a>
+    <p class="mt-3">© 2026 Dave Espinoza</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+const imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
+
+function openImageModal(src) {
+  document.getElementById("modalImage").src = src;
+  imageModal.show();
+}
+
+function closeImageModal() {
+  imageModal.hide();
+}
+
+  // Smooth scroll to top
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  // Show/hide top button on scroll
+  window.onscroll = function () {
+    document.getElementById("topBtn").style.display =
+      document.documentElement.scrollTop > 200 ? "block" : "none";
+  };
+</script>
+</body>
+</html>
